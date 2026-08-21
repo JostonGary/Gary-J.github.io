@@ -75,7 +75,82 @@
         white-space: nowrap;
     }
   </style>
-  
+	  
+<style>
+
+.degree-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.degree-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.degree-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+}
+
+.degree-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  background: #f7f7f7;
+  display: block;
+}
+
+.degree-info {
+  padding: 16px 18px 18px 18px;
+}
+
+.degree-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.degree-university {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.degree-year {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.degree-link a {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .degree-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .degree-card img {
+    height: auto;
+    max-height: 420px;
+  }
+
+}
+
+</style>
 
   
 </head>
@@ -102,6 +177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="trigger">
     <a class="page-link" href="#bio"><b>Biography</b></a>
+    <a class="page-link" href="#degrees"><b>Degrees</b></a>
     <a class="page-link" href="#timeline"><b>Experiences</b></a>
     <a class="page-link" href="#publications"><b>Publications</b></a>
     <a class="page-link" href="#codebase"><b>GitHub</b></a>
@@ -317,7 +393,145 @@ I'm always looking for related colaboration in quantitative marketing and consum
    	<li class="indented" data-date="[Oct, 2022]"> Two papers accepted to 36th Conference on Neural Information Processing Systems, and one paper selected for <b><span style="color: red;">Spotlight</span></b> presentation.</li>
   </ul>
 </div> -->
+<!-- Degree Certificates Section -->
+<div class="wrapper">
+  <div id="degrees" class="bio">
 
+    <h1 class="md-heading text-left">
+      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      Degree Certificates
+    </h1>
+
+    <div class="degree-grid">
+
+      <!-- University of the People -->
+      <div class="degree-card">
+        <a href="degrees/UoPeople_BSc_Computer_Science.pdf"
+           target="_blank">
+          <img src="images/degrees/uopeople-degree.jpg"
+               alt="Bachelor of Science in Computer Science - University of the People">
+        </a>
+
+        <div class="degree-info">
+          <div class="degree-title">
+            Bachelor of Science in Computer Science
+          </div>
+
+          <div class="degree-university">
+            University of the People
+          </div>
+
+          <div class="degree-year">
+            2026
+          </div>
+
+          <div class="degree-link">
+            <a href="degrees/UoPeople_BSc_Computer_Science.pdf"
+               target="_blank">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- JSS Academy -->
+      <div class="degree-card">
+        <a href="degrees/JSS_BSc_Psychology.pdf"
+           target="_blank">
+          <img src="images/degrees/jss-degree.jpg"
+               alt="Bachelor of Science in Psychology - JSS Academy">
+        </a>
+
+        <div class="degree-info">
+          <div class="degree-title">
+            Bachelor of Science in Psychology
+          </div>
+
+          <div class="degree-university">
+            JSS Academy of Higher Education and Research
+          </div>
+
+          <div class="degree-year">
+            2026
+          </div>
+
+          <div class="degree-link">
+            <a href="degrees/JSS_BSc_Psychology.pdf"
+               target="_blank">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- City University of Macau -->
+      <div class="degree-card">
+        <a href="degrees/CityU_Macau_MBA.pdf"
+           target="_blank">
+          <img src="images/degrees/cityu-macau-degree.jpg"
+               alt="MBA - City University of Macau">
+        </a>
+
+        <div class="degree-info">
+          <div class="degree-title">
+            Master of Business Administration
+          </div>
+
+          <div class="degree-university">
+            City University of Macau
+          </div>
+
+          <div class="degree-year">
+            2023
+          </div>
+
+          <div class="degree-link">
+            <a href="degrees/CityU_Macau_MBA.pdf"
+               target="_blank">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Chongqing Institute of Engineering -->
+      <div class="degree-card">
+        <a href="degrees/CQIE_BEng_Civil_Engineering.pdf"
+           target="_blank">
+          <img src="images/degrees/cqie-degree.jpg"
+               alt="Bachelor of Engineering in Civil Engineering">
+        </a>
+
+        <div class="degree-info">
+          <div class="degree-title">
+            Bachelor of Engineering in Civil Engineering
+          </div>
+
+          <div class="degree-university">
+            Chongqing Institute of Engineering
+          </div>
+
+          <div class="degree-year">
+            2021
+          </div>
+
+          <div class="degree-link">
+            <a href="degrees/CQIE_BEng_Civil_Engineering.pdf"
+               target="_blank">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+	
 <!-- <div class="wrapper"> -->
   <div id="timeline" class="timeline-brief">
     <h1 class="md-heading text-left">
