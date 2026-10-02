@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Joston Gary — Computational Social Scientist</title>
-<meta name="description" content="Joston Gary (Li Rui), computational social scientist at GOVCOPP, University of Aveiro and Linköping University. Measurement and modeling for large-scale behavioral and social data.">
+<meta name="description" content="Joston Gary (Li Rui), computational social scientist at the University of Aveiro and Linköping University. Measurement and modeling for large-scale behavioral and social data.">
 <meta name="author" content="Joston Gary">
-<meta name="keywords" content="Joston Gary, Li Rui, computational social science, structural equation modeling, marketing, tourism, GOVCOPP, University of Aveiro, Linköping University">
+<meta name="keywords" content="Joston Gary, Li Rui, computational social science, structural equation modeling, marketing, tourism, University of Aveiro, Linköping University">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Joston Gary — Computational Social Scientist">
@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -26,1390 +26,946 @@
 <style>
 /* ============================================================
    TOKENS
+   Ground is a cool lab-notebook grey; ink is Prussian blue.
+   The five field colours are the only chroma on the page.
    ============================================================ */
 :root{
-  --paper:      #FBFAF7;
-  --card:       #FFFFFF;
-  --ink:        #191C20;
-  --ink-soft:   #4E5459;
-  --ink-faint:  #8C9298;
-  --rule:       #E2E1DA;
-  --rule-soft:  #EDECE6;
-  --accent:     #2A63A8;   /* cobalt - links, active nav */
-  --accent-ink: #1C4677;
-  --brass:      #A87A18;   /* ochre - metrics, methods */
-  --wash:       #F6E7A8;   /* highlighter */
+  --ground: #F4F5F1;
+  --sheet:  #FFFFFF;
+  --ink:    #13263A;
+  --ink-2:  #3D4F62;
+  --ink-3:  #5A6977;
+  --line:   #CFD5D7;
+  --line-2: #E2E6E4;
+  --link:   #1F5A9E;
 
-  /* field coding: one hue per substantive area */
-  --f-consumer: #B33B6E;
-  --f-digital:  #2A63A8;
-  --f-environ:  #3C7C56;
-  --f-health:   #C0562E;
-  --f-psych:    #6A4CA6;
+  --f-consumer: #A8336A;
+  --f-digital:  #1F5A9E;
+  --f-environ:  #2F6E49;
+  --f-health:   #B04E27;
+  --f-psych:    #5E4399;
 
-  --display: "Spectral", Georgia, "Songti SC", serif;
-  --body:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif: "Source Serif 4", Georgia, "Noto Serif SC", "Songti SC", serif;
+  --sans:  "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 
-  --rail: 232px;
-  --gap: 56px;
-  --maxw: 1180px;
+  --maxw: 1240px;
+  --axis: 168px;
+  --bar: 60px;
 }
 
-.f-consumer{ --fc:var(--f-consumer); }
-.f-digital { --fc:var(--f-digital);  }
-.f-environ { --fc:var(--f-environ);  }
-.f-health  { --fc:var(--f-health);   }
-.f-psych   { --fc:var(--f-psych);    }
+[data-field="consumer"]{ --fc:var(--f-consumer); }
+[data-field="digital"] { --fc:var(--f-digital);  }
+[data-field="environ"] { --fc:var(--f-environ);  }
+[data-field="health"]  { --fc:var(--f-health);   }
+[data-field="psych"]   { --fc:var(--f-psych);    }
 
 *,*::before,*::after{ box-sizing:border-box; }
+[hidden]{ display:none !important; }
 
-html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--bar) + 20px); -webkit-text-size-adjust:100%; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
-  *{ animation:none !important; transition:none !important; }
 }
 
 body{
   margin:0;
-  background:var(--paper);
+  background:var(--ground);
   color:var(--ink);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.62;
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  font-kerning:normal;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-a{ color:var(--accent); text-decoration:none; }
-a:hover{ color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px; }
-a:focus-visible,
-button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+a{ color:var(--link); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--link) 35%, transparent); text-underline-offset:3px; text-decoration-thickness:1px; }
+a:hover{ text-decoration-color:currentColor; }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--link); outline-offset:3px; border-radius:2px; }
 
 img{ max-width:100%; display:block; }
+h1,h2,h3,p{ margin:0; }
 
-.shell{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
 
 /* ============================================================
-   HERO
+   TOP BAR
    ============================================================ */
-.hero{
-  border-bottom:1px solid var(--rule);
-  padding:64px 0 46px;
+.bar{
+  position:sticky; top:0; z-index:30;
+  height:var(--bar);
+  background:color-mix(in srgb, var(--ground) 90%, transparent);
+  -webkit-backdrop-filter:saturate(1.2) blur(10px);
+  backdrop-filter:saturate(1.2) blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
 }
-.hero-grid{
+.bar.scrolled{ border-bottom-color:var(--line-2); }
+.bar .wrap{ height:100%; display:flex; align-items:center; gap:32px; }
+.bar .home{
+  font-family:var(--serif); font-size:19px; font-weight:600;
+  color:var(--ink); text-decoration:none; white-space:nowrap;
+}
+.bar nav{ display:flex; gap:24px; margin-left:auto; overflow-x:auto; scrollbar-width:none; }
+.bar nav::-webkit-scrollbar{ display:none; }
+.bar nav a{
+  font-size:15.5px; color:var(--ink-2); text-decoration:none; white-space:nowrap;
+  padding:4px 0; border-bottom:2px solid transparent;
+}
+.bar nav a:hover{ color:var(--ink); }
+.bar nav a.on{ color:var(--ink); border-bottom-color:var(--ink); }
+
+/* ============================================================
+   HERO — Figure 1
+   ============================================================ */
+.hero{ padding:64px 0 72px; }
+.hero .wrap{
   display:grid;
-  grid-template-columns:1fr 190px;
-  gap:52px;
-  align-items:start;
-}
-.eyebrow{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin:0 0 18px;
+  grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:56px;
+  align-items:center;
 }
 .hero h1{
-  font-family:var(--display);
-  font-weight:600;
-  font-size:clamp(38px, 5.4vw, 62px);
-  line-height:1.02;
-  letter-spacing:-.02em;
-  margin:0 0 6px;
+  font-family:var(--serif);
+  font-weight:400;
+  font-optical-sizing:auto;
+  font-size:clamp(60px, 8.6vw, 128px);
+  line-height:.9;
+  letter-spacing:-.035em;
 }
-.hero h1 .zh{
-  font-size:.42em;
-  font-weight:300;
-  color:var(--ink-faint);
-  letter-spacing:.06em;
-  vertical-align:.34em;
-  margin-left:12px;
-}
-.hero .role{
-  font-family:var(--display);
-  font-style:italic;
-  font-size:21px;
-  color:var(--ink-soft);
-  margin:0 0 22px;
-}
-.thesis{
-  font-family:var(--display);
+.hero .zh{
+  display:block;
+  font-family:var(--sans);
   font-size:20px;
-  line-height:1.55;
-  max-width:52ch;
-  margin:0 0 26px;
+  letter-spacing:.24em;
+  color:var(--ink-3);
+  margin:22px 0 30px;
+}
+.hero .thesis{
+  font-family:var(--serif);
+  font-size:22px;
+  line-height:1.5;
+  max-width:30ch;
   color:var(--ink);
-  text-align:justify;
-  text-justify:inter-word;
-  -webkit-hyphens:auto;
-  hyphens:auto;
-  hanging-punctuation:allow-end;
 }
-.thesis::after{ content:""; display:inline-block; width:100%; }
-.thesis strong{ font-weight:600; box-shadow:inset 0 -.40em 0 var(--wash); }
+.hero .where{ margin-top:18px; color:var(--ink-2); max-width:38ch; }
+.links-row{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:30px; }
+.links-row a{ font-size:16px; color:var(--ink); text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+.links-row a i{ color:var(--ink-3); font-size:15px; width:16px; text-align:center; }
+.links-row a:hover{ color:var(--link); }
+.links-row a:hover i{ color:var(--link); }
 
-.tagrow{ display:flex; flex-wrap:wrap; gap:7px; margin:0 0 26px; padding:0; list-style:none; }
-.tagrow li{
-  font-family:var(--mono);
-  font-size:11.5px;
-  letter-spacing:.04em;
-  color:var(--ink-soft);
-  border:1px solid var(--rule);
-  border-radius:2px;
-  padding:3px 9px;
-  background:var(--card);
+.fig{ margin:0; }
+.plot{
+  position:relative;
+  height:clamp(380px, 44vw, 560px);
+  background:var(--sheet);
+  border:1px solid var(--line);
 }
+.plot canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:pan-y; }
+.tip{
+  position:absolute; z-index:2;
+  max-width:300px;
+  background:var(--ink); color:#F4F5F1;
+  padding:10px 12px;
+  font-size:14px; line-height:1.4;
+  pointer-events:none;
+  opacity:0; transform:translateY(4px);
+  transition:opacity .12s ease, transform .12s ease;
+}
+.tip.show{ opacity:1; transform:none; }
+.tip b{ font-family:var(--serif); font-weight:600; font-size:15px; display:block; margin-bottom:4px; }
+.tip span{ color:#B9C3CC; }
 
-.portrait{
-  border:1px solid var(--rule);
-  padding:7px;
-  background:var(--card);
+.fig figcaption{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:6px 14px;
+  margin-top:14px;
+  font-size:15px; line-height:1.5;
+  color:var(--ink-2);
 }
-.portrait img{ width:100%; aspect-ratio:1/1; object-fit:cover; }
-.portrait figcaption{
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--ink-faint);
-  padding-top:7px;
-  text-align:center;
+.fig figcaption b{ font-family:var(--serif); font-weight:600; color:var(--ink); }
+.keys{ display:flex; flex-wrap:wrap; gap:6px 8px; margin-top:12px; }
+.key{
+  font-family:var(--sans); font-size:14.5px;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:4px 11px 4px 9px;
+  border:1px solid var(--line); border-radius:999px;
+  background:var(--sheet); color:var(--ink-2);
+  cursor:pointer;
 }
-
-.contact{ display:flex; flex-wrap:wrap; gap:10px 22px; align-items:center; }
-.contact .mail{ font-family:var(--mono); font-size:13.5px; }
-.social{ display:flex; gap:6px; }
-.social a{
-  width:34px; height:34px;
-  display:grid; place-items:center;
-  border:1px solid var(--rule);
-  border-radius:2px;
-  color:var(--ink-soft);
-  background:var(--card);
-  font-size:15px;
-  transition:background .18s ease, color .18s ease, border-color .18s ease;
-}
-.social a:hover{ background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none; }
+.key::before{ content:""; width:10px; height:10px; border-radius:50%; background:var(--fc, var(--ink-3)); }
+.key[data-f="all"]::before{ background:conic-gradient(var(--f-consumer) 0 20%, var(--f-digital) 0 40%, var(--f-environ) 0 60%, var(--f-health) 0 80%, var(--f-psych) 0); }
+.key .c{ color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.key:hover{ border-color:var(--ink-3); color:var(--ink); }
+.key[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:#F4F5F1; }
+.key[aria-pressed="true"] .c{ color:#B9C3CC; }
 
 /* ============================================================
-   LAYOUT: rail + content
+   SECTIONS
    ============================================================ */
-.layout{
+.sec{ padding:88px 0; border-top:1px solid var(--line-2); }
+.sec h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(36px, 4.4vw, 52px);
+  line-height:1.05;
+  letter-spacing:-.02em;
+  margin-bottom:40px;
+}
+.sec h2 small{
+  font-family:var(--sans); font-size:17px; letter-spacing:0;
+  color:var(--ink-3); margin-left:14px; vertical-align:.5em;
+}
+.sec h3:not(.t){ font-size:17px; font-weight:600; color:var(--ink); margin:44px 0 18px; }
+.sec h3:not(.t):first-child{ margin-top:0; }
+
+/* the axis: dates and years live in a left margin column */
+.row{
   display:grid;
-  grid-template-columns:var(--rail) 1fr;
-  gap:var(--gap);
-  padding:44px 0 80px;
-  align-items:start;
+  grid-template-columns:var(--axis) minmax(0,1fr);
+  gap:40px;
 }
-.rail{ position:sticky; top:34px; }
-.rail nav{ display:flex; flex-direction:column; gap:1px; }
-.rail a{
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--ink-faint);
-  padding:7px 0 7px 15px;
-  border-left:2px solid var(--rule-soft);
-  transition:color .18s ease, border-color .18s ease;
-}
-.rail a:hover{ color:var(--ink); text-decoration:none; border-left-color:var(--rule); }
-.rail a.on{ color:var(--accent); border-left-color:var(--accent); }
+.row + .row{ margin-top:26px; }
+.when{ color:var(--ink-3); font-size:15.5px; font-variant-numeric:tabular-nums; padding-top:2px; }
+.what{ font-family:var(--serif); font-size:19px; font-weight:600; line-height:1.35; }
+.det{ color:var(--ink-2); margin-top:4px; max-width:68ch; }
+.det + .det{ margin-top:2px; }
 
-/* ============================================================
-   SECTIONS  — signature: mono header rule with n = count
-   ============================================================ */
-section{ scroll-margin-top:26px; margin-bottom:62px; }
-section:last-of-type{ margin-bottom:0; }
+/* ---------- about ---------- */
+.about{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:72px; align-items:start; }
+.lede{ font-family:var(--serif); font-size:clamp(23px, 2.3vw, 28px); line-height:1.45; max-width:34ch; }
+.about .body{ margin-top:24px; color:var(--ink-2); max-width:58ch; }
+.about .body p + p{ margin-top:14px; }
+.record{ margin:0; border-top:1px solid var(--ink); }
+.record div{ display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:14px 0; border-bottom:1px solid var(--line-2); }
+.record dt{ color:var(--ink-2); }
+.record dd{ margin:0; font-family:var(--serif); font-size:34px; line-height:1; font-variant-numeric:tabular-nums lining-nums; }
+.note{ font-size:14px; color:var(--ink-3); margin-top:12px; }
 
-.head{
-  display:flex;
-  align-items:baseline;
-  gap:16px;
-  border-bottom:1px solid var(--ink);
-  padding-bottom:9px;
-  margin-bottom:26px;
-}
-.head h2{
-  font-family:var(--display);
-  font-size:25px;
-  font-weight:600;
-  letter-spacing:-.01em;
-  margin:0;
-  white-space:nowrap;
-}
-.head .n{
-  font-family:var(--mono);
-  font-size:11.5px;
-  color:var(--ink-faint);
-  margin-left:auto;
-  white-space:nowrap;
-}
-.head .n b{ color:var(--brass); font-weight:500; }
+.v{ margin-top:auto; padding-top:28px; }
 
-.prose p{
-  margin:0 0 15px;
-  max-width:70ch;
-  text-align:justify;
-  text-justify:inter-word;
-  -webkit-hyphens:auto;
-  hyphens:auto;
-  hanging-punctuation:allow-end;
-}
-.prose p:last-child{ margin-bottom:0; }
-
-/* ---------- interests ---------- */
-.constructs{ list-style:none; margin:0; padding:0; }
-.constructs > li{
-  padding:14px 0 14px 16px;
-  border-left:3px solid var(--brass);
-  border-bottom:1px solid var(--rule-soft);
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:20px;
-  align-items:baseline;
-}
-.constructs > li:first-child{ padding-top:14px; }
-.constructs > li:last-child{ border-bottom:0; }
-.constructs .name{ font-family:var(--display); font-size:18px; font-weight:600; }
-.refs{ display:flex; flex-wrap:wrap; gap:6px; }
-.refs a{
-  font-family:var(--mono);
-  font-size:11.5px;
-  color:var(--ink-soft);
-  border:1px solid var(--rule);
-  border-radius:2px;
-  padding:2px 8px;
-  background:var(--card);
-  transition:background .16s ease, color .16s ease, border-color .16s ease;
-}
-.refs a:hover{ background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none; }
-
-/* ---------- education ---------- */
-.edu{ list-style:none; margin:0; padding:0; }
-.edu > li{
-  display:grid;
-  grid-template-columns:1fr 300px;
-  gap:24px;
-  padding:16px 0;
-  border-bottom:1px solid var(--rule-soft);
-}
-.edu > li:first-child{ padding-top:0; }
-.edu > li:last-child{ border-bottom:0; }
-.edu .school{ font-family:var(--display); font-size:19px; font-weight:600; margin:0 0 2px; }
-.edu .degree{ margin:0; color:var(--ink-soft); }
-.edu .side{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--ink-faint);
-  line-height:1.85;
-}
-.edu .side .yr{ color:var(--ink); }
-.edu .side .badge{
-  display:inline-block;
-  border:1px solid var(--rule);
-  border-radius:2px;
-  padding:1px 7px;
-  font-size:10.5px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--ink-soft);
-  margin-top:5px;
-}
-
-/* ---------- certificates ---------- */
-.certs{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(196px,1fr));
-  gap:18px;
-}
-.cert{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-  border:1px solid var(--rule);
-  background:var(--card);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.cert:hover{ transform:translateY(-3px); box-shadow:0 8px 24px rgba(20,24,28,.09); text-decoration:none; }
-.cert:hover .t{ color:var(--accent); }
-.cert img{
-  width:100%; height:150px;
-  object-fit:contain;
-  background:var(--wash);
-  padding:10px;
-  border-bottom:1px solid var(--rule-soft);
-}
-.cert .meta{ padding:12px 13px 13px; }
-.cert .t{ font-family:var(--display); font-size:14.5px; font-weight:600; line-height:1.3; margin:0 0 4px; }
-.cert .u{ font-size:12.5px; color:var(--ink-soft); margin:0; }
-.cert .y{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); margin:5px 0 0; }
-
-/* ---------- timeline ---------- */
-.track{ list-style:none; margin:0; padding:0 0 0 26px; border-left:1px solid var(--rule); }
-.track > li{ position:relative; padding:0 0 26px 22px; }
-.track > li:last-child{ padding-bottom:0; }
-.track > li::before{
-  content:"";
-  position:absolute; left:-31px; top:8px;
-  width:9px; height:9px;
-  background:var(--paper);
-  border:1.5px solid var(--dot, var(--accent));
-  background:var(--paper);
-  border-radius:50%;
-}
-.track > li.applied{ --dot:var(--brass); }
-.track .when{
-  font-family:var(--mono);
-  font-size:11.5px;
-  letter-spacing:.05em;
-  color:var(--brass);
-  display:block;
-  margin-bottom:3px;
-}
-.track .what{ font-family:var(--display); font-size:18px; font-weight:600; margin:0 0 2px; }
-.track .who{ color:var(--ink-soft); font-size:14.5px; margin:0; }
-.track .who em{ font-family:var(--display); }
+.v{ font-size:15.5px; color:var(--ink-3); line-height:1.55; }
+.v cite{ font-family:var(--serif); font-style:italic; color:var(--ink); font-size:16.5px; }
+.v .lk{ display:inline-flex; gap:14px; margin-left:12px; white-space:nowrap; }
+.v .lk a{ font-weight:600; }
 
 /* ---------- publications ---------- */
-.pubbar{ display:flex; gap:0; margin-bottom:22px; }
-.pubbar button{
-  font-family:var(--mono);
-  font-size:11.5px;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-  padding:7px 15px;
-  border:1px solid var(--rule);
-  background:var(--card);
-  color:var(--ink-soft);
-  cursor:pointer;
-  transition:background .16s ease, color .16s ease;
-}
-.pubbar button + button{ border-left:0; }
-.pubbar button[aria-pressed="true"]{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.pubtools{ display:flex; flex-wrap:wrap; align-items:center; gap:14px 24px; margin:-14px 0 44px; }
+.pubtools .shown{ color:var(--ink-3); font-size:15px; margin-left:auto; }
 
-.year{
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:.14em;
-  color:var(--ink-faint);
-  border-bottom:1px solid var(--rule-soft);
-  padding-bottom:5px;
-  margin:30px 0 4px;
+.yg{ display:grid; grid-template-columns:var(--axis) minmax(0,1fr); gap:40px; }
+.yg + .yg{ margin-top:52px; }
+.yl{
+  font-family:var(--serif); font-weight:300; font-size:48px; line-height:1;
+  color:var(--ink-3); letter-spacing:-.02em;
+  position:sticky; top:calc(var(--bar) + 24px); align-self:start;
+  font-variant-numeric:lining-nums;
 }
-.year:first-of-type{ margin-top:0; }
-
+.yl.words{ font-size:30px; line-height:1.1; }
 .pub{
-  display:grid;
-  grid-template-columns:4px 1fr;
-  gap:16px;
-  padding:15px 0;
-  border-bottom:1px solid var(--rule-soft);
-}
-.pub .mark{
-  background:var(--fc, var(--rule));
-  border-radius:3px;
-  align-self:stretch;
-}
-.pub .t{ font-family:var(--display); font-size:17.5px; font-weight:600; line-height:1.32; margin:0 0 5px; }
-.pub .a{ font-size:13.5px; color:var(--ink-soft); margin:0 0 7px; }
-.pub .a b{ color:var(--ink); font-weight:600; }
-.pub .v{ display:flex; flex-wrap:wrap; align-items:center; gap:7px; font-family:var(--mono); font-size:11.5px; }
-.pub .v .venue{ color:var(--fc, var(--ink)); font-weight:500; }
-.pub .v .chip{
-  border:1px solid var(--rule);
-  border-radius:2px;
-  padding:1px 7px;
-  color:var(--ink-soft);
-}
-.pub .v .chip.q{ color:var(--brass); border-color:var(--brass); }
-.pub .v a.chip{ color:var(--accent); border-color:var(--accent); }
-.pub .v .chip.rep{ color:var(--brass); border-color:var(--brass); background:#A87A1814; }
-
-.legend{ display:flex; flex-wrap:wrap; gap:6px 18px; margin:0 0 24px; padding:0; list-style:none; }
-.legend li{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.03em;
-  color:var(--ink-soft);
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-.legend li::before{
-  content:"";
-  width:11px; height:11px;
-  border-radius:2px;
-  background:var(--fc);
-}
-.pub .v a.chip:hover{ background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none; }
-
-/* ---------- github ---------- */
-.repo{
-  border:1px solid var(--rule);
-  background:var(--card);
-  padding:18px 20px;
-  max-width:560px;
-}
-.repo .path{ font-family:var(--mono); font-size:14px; }
-.repo .d{ color:var(--ink-soft); font-size:14px; margin:7px 0 12px; }
-.repo .stats{ display:flex; gap:18px; font-family:var(--mono); font-size:12px; color:var(--ink-faint); align-items:center; }
-.repo .stats .lang::before{
-  content:""; display:inline-block;
-  width:9px; height:9px; border-radius:50%;
-  background:var(--brass); margin-right:6px;
-}
-
-/* ---------- awards / services ---------- */
-.plain{ list-style:none; margin:0; padding:0; }
-.plain > li{
-  padding:11px 0 11px 20px;
-  border-bottom:1px solid var(--rule-soft);
   position:relative;
+  padding:0 0 26px 20px;
+  margin-bottom:26px;
+  border-bottom:1px solid var(--line-2);
 }
-.plain > li:last-child{ border-bottom:0; }
-.plain > li::before{
-  content:"—";
-  position:absolute; left:0; color:var(--ink-faint);
-  font-family:var(--mono);
+.pub:last-child{ margin-bottom:0; border-bottom:0; padding-bottom:0; }
+.pub::before{
+  content:""; position:absolute; left:0; top:7px; bottom:28px;
+  width:3px; border-radius:2px; background:var(--fc);
 }
-.plain .yr{ font-family:var(--mono); font-size:12px; color:var(--brass); }
+.pub:last-child::before{ bottom:2px; }
+.pub .t{ font-family:var(--serif); font-size:20px; line-height:1.38; font-weight:600; max-width:62ch; }
+.pub .a{ font-size:15.5px; color:var(--ink-2); margin-top:6px; }
+.pub .a b{ color:var(--ink); font-weight:600; }
+.pub .v{ margin-top:6px; }
+.pub .status{ color:var(--ink); font-weight:600; }
+@keyframes flash{ from{ background:color-mix(in srgb, var(--fc) 16%, transparent); } to{ background:transparent; } }
+.pub.flash{ animation:flash 1.8s ease-out; }
 
-.sub{
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  color:var(--ink-faint);
-  margin:26px 0 10px;
-}
-.sub:first-child{ margin-top:0; }
-.cols{ columns:2; column-gap:34px; }
-.cols ul{ list-style:none; margin:0; padding:0; }
-.cols li{ break-inside:avoid; padding:5px 0; font-size:14.5px; color:var(--ink-soft); }
+/* ---------- reading list ---------- */
+.reading .row{ padding-bottom:22px; border-bottom:1px solid var(--line-2); }
+.reading .row + .row{ margin-top:22px; }
+.reading .row:last-child{ border-bottom:0; padding-bottom:0; }
+.reading .topic{ font-family:var(--serif); font-size:19px; font-weight:600; line-height:1.35; }
+.reading .refs{ display:flex; flex-wrap:wrap; gap:6px 22px; padding-top:2px; }
+.intro{ color:var(--ink-2); max-width:60ch; margin:-22px 0 40px; }
 
-/* ---------- footer ---------- */
-footer{
-  border-top:1px solid var(--rule);
-  padding:34px 0 46px;
-  font-size:13.5px;
-  color:var(--ink-faint);
+/* ---------- certificates ---------- */
+.strip{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:220px;
+  gap:18px;
+  overflow-x:auto;
+  padding-bottom:14px;
+  scroll-snap-type:x proximity;
+  scrollbar-color:var(--line) transparent;
 }
-.footgrid{ display:flex; flex-wrap:wrap; gap:22px; justify-content:space-between; align-items:center; }
-.footgrid .m{ font-family:var(--mono); font-size:12px; }
-#map-slot{ max-width:340px; margin:0 auto 30px; }
+.cert{ scroll-snap-align:start; color:inherit; text-decoration:none; background:var(--sheet); border:1px solid var(--line-2); }
+.cert img{ width:100%; height:140px; object-fit:contain; background:#ECEEEA; padding:10px; }
+.cert .meta{ padding:12px 14px 14px; }
+.cert .t{ font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.3; }
+.cert .u{ font-size:14px; color:var(--ink-2); line-height:1.4; margin-top:4px; }
+.cert .y{ font-size:14px; color:var(--ink-3); margin-top:6px; }
+.cert:hover .t{ color:var(--link); }
 
-.totop{
-  position:fixed; right:22px; bottom:22px;
-  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-  background:var(--ink); color:var(--paper);
-  border:0; border-radius:2px;
-  padding:9px 13px;
-  cursor:pointer;
-  opacity:0; pointer-events:none;
-  transition:opacity .25s ease;
+/* ---------- honors & service ---------- */
+.two{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:72px; }
+.two h2{ font-size:clamp(30px, 3.2vw, 40px); }
+.journals{ list-style:none; margin:0; padding:0; columns:2; column-gap:28px; }
+.journals li{ break-inside:avoid; color:var(--ink-2); font-size:16px; line-height:1.45; padding:3px 0; }
+.honor + .honor{ margin-top:20px; }
+.honor .when{ display:block; }
+
+/* ---------- contact ---------- */
+.contact{ padding:96px 0 56px; border-top:1px solid var(--line-2); }
+.contact .big{
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(40px, 6vw, 80px); line-height:1; letter-spacing:-.03em;
 }
-.totop.show{ opacity:1; pointer-events:auto; }
-
-/* ---------- reveal ---------- */
-.js .rise{ opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-.js .rise.in{ opacity:1; transform:none; }
+.contact .mails{ display:flex; flex-wrap:wrap; gap:8px 36px; margin-top:28px; font-family:var(--serif); font-size:clamp(20px, 2.2vw, 26px); }
+.contact .sub{ color:var(--ink-2); margin-top:18px; max-width:52ch; }
+.foot{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px; margin-top:72px; padding-top:22px; border-top:1px solid var(--line-2); color:var(--ink-3); font-size:15px; }
+#map-slot{ max-width:260px; }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 980px){
-  .layout{ grid-template-columns:1fr; gap:0; padding-top:0; }
-  .rail{
-    position:sticky; top:0; z-index:20;
-    background:var(--paper);
-    border-bottom:1px solid var(--rule);
-    margin:0 -28px 30px;
-    padding:0 28px;
-  }
-  .rail nav{
-    flex-direction:row;
-    overflow-x:auto;
-    gap:20px;
-    scrollbar-width:none;
-  }
-  .rail nav::-webkit-scrollbar{ display:none; }
-  .rail a{
-    border-left:0;
-    border-bottom:2px solid transparent;
-    padding:13px 0;
-    white-space:nowrap;
-  }
-  .rail a:hover{ border-left:0; }
-  .rail a.on{ border-left:0; border-bottom-color:var(--accent); }
-  section{ scroll-margin-top:74px; }
-  .edu > li{ grid-template-columns:1fr; gap:8px; }
-  .constructs > li{ grid-template-columns:1fr; gap:8px; }
+@media (max-width: 1020px){
+  .hero .wrap{ grid-template-columns:1fr; gap:44px; }
+  .hero .thesis{ max-width:36ch; }
+  .about{ grid-template-columns:1fr; gap:44px; }
+  .two{ grid-template-columns:1fr; gap:72px; }
+  .bar .home{ display:none; }
+  .bar nav{ margin-left:0; }
 }
-
-@media (max-width: 680px){
-  .shell{ padding:0 20px; }
-  .rail{ margin:0 -20px 26px; padding:0 20px; }
-  .hero{ padding:40px 0 34px; }
-  .hero-grid{ grid-template-columns:1fr; gap:26px; }
-  .portrait{ max-width:150px; }
-  .thesis{ font-size:18px; }
-  .head{ flex-wrap:wrap; gap:8px; }
-  .head .n{ margin-left:0; width:100%; }
-  .cols{ columns:1; }
-  .prose p,
-  .thesis{ text-align:left; -webkit-hyphens:none; hyphens:none; }
-  .thesis::after{ content:none; }
-  .certs{ grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); }
-  .cert img{ height:120px; }
+@media (max-width: 720px){
+  :root{ --axis:100%; }
+  body{ font-size:16.5px; }
+  .wrap{ padding:0 18px; }
+  .hero{ padding:40px 0 56px; }
+  .plot{ height:360px; }
+  .sec{ padding:64px 0; }
+  .row, .yg{ grid-template-columns:1fr; gap:6px; }
+  .yg{ gap:18px; }
+  .yl{ position:static; font-size:36px; }
+  .journals{ columns:1; }
+  .pubtools .shown{ margin-left:0; width:100%; }
+  .v .lk{ display:flex; margin:4px 0 0; }
+  .strip{ grid-auto-columns:180px; }
+  .cert img{ height:116px; }
 }
 
 @media print{
-  .rail, .totop, #map-slot, .social{ display:none; }
+  .bar, .fig, .pubtools, #map-slot, .strip{ display:none; }
   body{ background:#fff; font-size:11pt; }
-  .layout{ grid-template-columns:1fr; }
-  .pub, section{ break-inside:avoid; }
+  .hero .wrap, .about, .two{ grid-template-columns:1fr; }
+  .sec{ padding:28px 0; }
+  .yl{ position:static; }
+  .pub{ break-inside:avoid; }
 }
 </style>
-<script>document.documentElement.className+=" js";</script>
 </head>
 
 <body>
 
-<!-- ========================= HERO ========================= -->
-<header class="hero">
-  <div class="shell">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow">University of Aveiro · Linköping University</p>
-
-        <h1>Joston Gary<span class="zh" lang="zh-Hans">黎瑞</span></h1>
-        <p class="role">Computational social scientist</p>
-
-        <p class="thesis">
-          I build <strong>measurement and modeling strategies</strong> for large-scale
-          behavioral data, then carry them across substantive ground — digital
-          platforms, tourism, environment, public health.
-        </p>
-
-        <ul class="tagrow">
-          <li>Structural equation modeling</li>
-          <li>Machine learning hybrids</li>
-          <li>Meta-analysis</li>
-          <li>Text &amp; multimodal analysis</li>
-        </ul>
-
-        <div class="contact">
-          <span class="mail"><a href="mailto:lirui@ua.pt">lirui@ua.pt</a> · <a href="mailto:li.rui@liu.se">li.rui@liu.se</a></span>
-          <span class="social">
-            <a href="https://scholar.google.com/citations?user=6aQ4HFAAAAAJ&amp;hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a>
-            <a href="https://github.com/JostonGary" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/li-rui-8131b0268/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="work/Joston%20Gary-CV-2.pdf" target="_blank" rel="noopener" title="Curriculum vitae" aria-label="Curriculum vitae"><i class="ai ai-cv" aria-hidden="true"></i></a>
-            <a href="mailto:lirui@ua.pt" title="Email" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
-          </span>
-        </div>
-      </div>
-
-      <figure class="portrait">
-        <img src="images/my%20profile.png" alt="Portrait of Joston Gary">
-        <figcaption>Aveiro, PT</figcaption>
-      </figure>
-    </div>
+<!-- ========================= TOP BAR ========================= -->
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="home" href="#top">Joston Gary</a>
+    <nav id="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#reading">Reading list</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#service">Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<div class="shell">
-<div class="layout">
-
-  <!-- ========================= RAIL ========================= -->
-  <aside class="rail">
-    <nav id="rail-nav" aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#interests">Interests</a>
-      <a href="#education">Education</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#experience">Experience</a>
-      <a href="#publications">Publications</a>
-      <a href="#honors">Honors</a>
-      <a href="#service">Service</a>
-    </nav>
-  </aside>
-
-  <main>
-
-  <!-- ========================= ABOUT ========================= -->
-  <section id="about" class="rise">
-    <div class="head">
-      <h2>About</h2>
-      <span class="n">GOVCOPP · Research Unit on Governance, Competitiveness and Public Policies</span>
-    </div>
-    <div class="prose">
-      <p>
-Joston Gary is a PhD Candidate in Marketing. His primary research area is computational social science. His research combines machine learning, statistical modeling, and computational methods to study human behavior and decision-making using large-scale and digitally generated data. His work spans several application domains, including consumer behavior, digital technology, tourism, health sciences, sustainability, and environmental research, with a common focus on understanding social and behavioral processes through computational methods.
-      </p>
-      <p>
-        I welcome collaboration on computational approaches to social behavior.
-        Write to me at <a href="mailto:lirui@ua.pt">lirui@ua.pt</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- ========================= INTERESTS ========================= -->
-  <section id="interests" class="rise">
-    <div class="head">
-      <h2>Interests</h2>
-      <span class="n">reading list, by construct</span>
+<!-- ========================= HERO ========================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Joston<br>Gary</h1>
+      <span class="zh" lang="zh-Hans">黎瑞</span>
+      <p class="thesis">I build measurement and modeling strategies for large-scale behavioral data, then carry them across digital platforms, tourism, environment, and public health.</p>
+      <p class="where">Computational social scientist and PhD candidate in Marketing</p>
+      <div class="links-row">
+        <a href="mailto:lirui@ua.pt"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Email</a>
+        <a href="https://scholar.google.com/citations?user=6aQ4HFAAAAAJ&amp;hl=en" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a>
+        <a href="https://github.com/JostonGary" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+        <a href="https://www.linkedin.com/in/li-rui-8131b0268/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn</a>
+        <a href="work/Joston%20Gary-CV-2.pdf" target="_blank" rel="noopener"><i class="ai ai-cv" aria-hidden="true"></i>Curriculum vitae</a>
+      </div>
     </div>
 
-    <ul class="constructs">
-      <li>
-        <span class="name">Machine learning algorithms</span>
-        <span class="refs">
-          <a href="https://www.sciencedirect.com/science/article/pii/S0167947320300487" target="_blank" rel="noopener">K-Means</a>
-          <a href="https://www.sciencedirect.com/science/article/pii/S0167811624000995" target="_blank" rel="noopener">PML</a>
-          <a href="https://pubsonline.informs.org/doi/full/10.1287/mksc.2022.1429" target="_blank" rel="noopener">GAN / VAE</a>
-          <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2020.1869025" target="_blank" rel="noopener">WASP</a>
-        </span>
-      </li>
-      <li>
-        <span class="name">Behavioral psychology</span>
-        <span class="refs">
-          <a href="https://www.tandfonline.com/doi/full/10.1080/02699931.2025.2504556#abstract" target="_blank" rel="noopener">IAE</a>
-          <a href="https://journals.sagepub.com/doi/abs/10.1177/19485506231218362" target="_blank" rel="noopener">Emotions</a>
-          <a href="https://www.sciencedirect.com/science/article/pii/S002210312400012X" target="_blank" rel="noopener">Perception</a>
-          <a href="https://link.springer.com/article/10.1007/s41809-022-00098-9" target="_blank" rel="noopener">Culture</a>
-        </span>
-      </li>
-      <li>
-        <span class="name">Structural equation modeling</span>
-        <span class="refs">
-          <a href="https://link.springer.com/article/10.1057/s41270-023-00279-7" target="_blank" rel="noopener">Advanced</a>
-          <a href="https://www.sciencedirect.com/science/article/pii/S1877858521000383?via%3Dihub" target="_blank" rel="noopener">MR</a>
-          <a href="https://link.springer.com/article/10.1007/s11747-021-00805-y" target="_blank" rel="noopener">Endogeneity</a>
-          <a href="https://www.mdpi.com/2227-7390/10/9/1379" target="_blank" rel="noopener">ANN</a>
-          <a href="https://journals.sagepub.com/doi/abs/10.1177/0149206313501200" target="_blank" rel="noopener">BSEM</a>
-          <a href="https://uk.sagepub.com/en-gb/eur/advanced-issues-in-partial-least-squares-structural-equation-modeling/book279526" target="_blank" rel="noopener">Guide</a>
-        </span>
-      </li>
-      <li>
-        <span class="name">Methodological solutions</span>
-        <span class="refs">
-          <a href="https://link.springer.com/article/10.1007/s11747-022-00848-9" target="_blank" rel="noopener">RSA</a>
-          <a href="https://journals.sagepub.com/doi/10.1177/00222437231189185" target="_blank" rel="noopener">Nonparametric</a>
-          <a href="https://journals.sagepub.com/doi/full/10.1177/00222437211032938" target="_blank" rel="noopener">Probabilistic</a>
-          <a href="https://pubsonline.informs.org/doi/10.1287/mksc.2020.1265" target="_blank" rel="noopener">Selection models</a>
-        </span>
-      </li>
-      <li>
-        <span class="name">Music and tourism marketing</span>
-        <span class="refs">
-          <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.21875" target="_blank" rel="noopener">Brand</a>
-          <a href="https://www.sciencedirect.com/science/article/pii/S1871187124002219" target="_blank" rel="noopener">Metaphor</a>
-          <a href="https://journals.sagepub.com/doi/full/10.1177/00472875241312178" target="_blank" rel="noopener">Influencer</a>
-        </span>
-      </li>
-    </ul>
-  </section>
+    <figure class="fig">
+      <div class="plot" id="plot">
+        <canvas id="field" role="img" aria-label="Scatter plot of 23 studies grouped into five research fields. The full list appears in the Publications section."></canvas>
+        <div class="tip" id="tip" aria-hidden="true"></div>
+      </div>
+      <figcaption>
+        <b>Figure 1.</b>
+        <span>Twenty-three studies, clustered by field. Each large point is one paper; hover it to read the title, or click to jump to it. Small points stand in for the observations behind the work.</span>
+      </figcaption>
+      <div class="keys" role="group" aria-label="Filter publications by field">
+        <button class="key" type="button" data-f="all" aria-pressed="true">All fields <span class="c"></span></button>
+        <button class="key" type="button" data-f="consumer" data-field="consumer" aria-pressed="false">Consumer &amp; destination <span class="c"></span></button>
+        <button class="key" type="button" data-f="digital" data-field="digital" aria-pressed="false">Digital platforms <span class="c"></span></button>
+        <button class="key" type="button" data-f="environ" data-field="environ" aria-pressed="false">Environment &amp; economy <span class="c"></span></button>
+        <button class="key" type="button" data-f="health" data-field="health" aria-pressed="false">Public health <span class="c"></span></button>
+        <button class="key" type="button" data-f="psych" data-field="psych" aria-pressed="false">Psychology <span class="c"></span></button>
+      </div>
+    </figure>
+  </div>
+</section>
 
-  <!-- ========================= EDUCATION ========================= -->
-  <section id="education" class="rise">
-    <div class="head">
-      <h2>Education</h2>
-      <span class="n">n = <b>8</b> programs</span>
+<main>
+
+<!-- ========================= ABOUT ========================= -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="about">
+      <div>
+        <p class="lede">Joston Gary is a Visiting Ph.D. Student and Affiliated Researcher at Linköping University, supervised by Prof. Lars Witell.</p>
+        <div class="body">
+          <p>His primary research area is computational social science. His research combines machine learning, statistical modeling, and computational methods to study human behavior and decision-making using large-scale and digitally generated data. His work spans several application domains, including consumer behavior, digital technology, tourism, health sciences, sustainability, and environmental research, with a common focus on understanding social and behavioral processes through computational methods.</p>
+        </div>
+      </div>
+      <div>
+        <dl class="record">
+          <div><dt>Published papers</dt><dd id="r-pub">20</dd></div>
+          <div><dt>In Q1-ranked journals</dt><dd id="r-q1">17</dd></div>
+          <div><dt>As corresponding author</dt><dd id="r-corr">17</dd></div>
+          <div><dt>Journals reviewed for</dt><dd>26</dd></div>
+        </dl>
+        <p class="note">Counts are computed from the publication list on this page; three further manuscripts are under review.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <ul class="edu">
-      <li>
-        <div>
-          <p class="school">University of Aveiro</p>
-          <p class="degree">Ph.D. in Marketing (Computational Marketing Communication Track)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Dec 2027</span> · Aveiro, PT<br>
-          Supervisor <a href="https://govcopp.ua.pt/user/800" target="_blank" rel="noopener">Prof. António Carrizo Moreira</a>
-          <br><span class="badge">ECIU Network Program</span>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">Linköping University</p>
-          <p class="degree">Visiting Ph.D. Student and Affiliated Researcher</p>
-        </div>
-        <div class="side">
-          <span class="yr">Aug 2027</span> · Linköping, SE<br>
-          Supervisor <a href="https://liu.se/en/employee/larni66" target="_blank" rel="noopener">Prof. Lars Witell</a>
-          <br><span class="badge">Department of Management and Engineering</span>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">University of Minho</p>
-          <p class="degree">Ph.D. in Marketing and Strategy (Joint Degree)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Dec 2027</span> · Braga, PT<br>
-          Mentor <a href="https://www.eeg.uminho.pt/en/_layouts/15/uminho.portaisuoei.ui/pages/userinfo.aspx?p=6089" target="_blank" rel="noopener">Assoc. Prof. Beatriz Casais</a>
-          <br><span class="badge">AACSB · EFMD accredited</span>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">City University of Macau</p>
-          <p class="degree">M.B.A. in Accounting and Finance</p>
-        </div>
-        <div class="side">
-          <span class="yr">Jul 2023</span> · Macau S.A.R.<br>
-          Supervisor <a href="https://fob.cityu.edu.mo/en/full-time-academic-staff/475" target="_blank" rel="noopener">Asst. Prof. Yat Fung Wong</a>
-          <br><span class="badge">AMBA · BGA Gold accredited · QS 5 Stars</span>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">Georgia Institute of Technology</p>
-          <p class="degree">M.S. in Computer Science (Human-Computer Interaction Track)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Jun 2029</span> · Atlanta, US
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">Thomas Edison State University</p>
-          <p class="degree">B.S. in Business Administration (Marketing and Communication Track)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Dec 2026</span> · New Jersey, US<br>
-          Mentor <a href="https://www.tesu.edu/directory/profiles/business/robert-bigelow.html" target="_blank" rel="noopener">Prof. Robert Bigelow</a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">University of the People</p>
-          <p class="degree">B.S. in Computer Science (Data Science Track)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Aug 2026</span> · California, US
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">JSS Academy of Higher Education and Research</p>
-          <p class="degree">B.S. in Psychology (Healthcare Track)</p>
-        </div>
-        <div class="side">
-          <span class="yr">Oct 2026</span> · Mysuru, IN<br>
-          Mentor <a href="https://www.jssuni.edu.in/jssaher/School-of-LifeSciences-Mysuru/division-of-cognitive-neuroscience-faculty.html" target="_blank" rel="noopener">Mrs. Rita Carral</a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="school">Chongqing Institute of Engineering</p>
-          <p class="degree">B.Eng. in Civil Engineering</p>
-        </div>
-        <div class="side">
-          <span class="yr">Jun 2021</span> · Chongqing, CN<br>
-          Mentor <a href="https://www.researchgate.net/profile/Yingji-Li" target="_blank" rel="noopener">Prof. Yingji Li</a>
-        </div>
-      </li>
-    </ul>
-  </section>
 
-  <!-- ========================= CERTIFICATES ========================= -->
-  <section id="certificates" class="rise">
-    <div class="head">
-      <h2>Certificates</h2>
-      <span class="n">n = <b>13</b> on file</span>
+<!-- ========================= PUBLICATIONS ========================= -->
+<section class="sec" id="publications">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <div class="pubtools">
+      <div class="keys" role="group" aria-label="Filter publications by field">
+        <button class="key" type="button" data-f="all" aria-pressed="true">All fields <span class="c"></span></button>
+        <button class="key" type="button" data-f="consumer" data-field="consumer" aria-pressed="false">Consumer &amp; destination <span class="c"></span></button>
+        <button class="key" type="button" data-f="digital" data-field="digital" aria-pressed="false">Digital platforms <span class="c"></span></button>
+        <button class="key" type="button" data-f="environ" data-field="environ" aria-pressed="false">Environment &amp; economy <span class="c"></span></button>
+        <button class="key" type="button" data-f="health" data-field="health" aria-pressed="false">Public health <span class="c"></span></button>
+        <button class="key" type="button" data-f="psych" data-field="psych" aria-pressed="false">Psychology <span class="c"></span></button>
+      </div>
+      <p class="shown" id="shown" aria-live="polite">Showing all 23. * marks the corresponding author.</p>
     </div>
-
-    <div class="certs">
-      <a class="cert" href="degrees/UoPeople_BSc_Computer_Science.pdf" target="_blank" rel="noopener">
-        <img src="images/uopeople-degree.jpg" alt="B.Sc. in Computer Science, University of the People">
-        <div class="meta">
-          <p class="t">B.Sc. Computer Science</p>
-          <p class="u">University of the People</p>
-          <p class="y">2026</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/JSS_BSc_Psychology.pdf" target="_blank" rel="noopener">
-        <img src="images/jss-degree.jpg" alt="B.Sc. in Psychology, JSS Academy">
-        <div class="meta">
-          <p class="t">B.Sc. Psychology</p>
-          <p class="u">JSS Academy of Higher Education and Research</p>
-          <p class="y">2026</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/TESU_BSc_BA.pdf" target="_blank" rel="noopener">
-        <img src="images/jss-degree.jpg" alt="B.Sc. in Business Administration, Thomas Edison State University">
-        <div class="meta">
-          <p class="t">B.Sc. Business Administration</p>
-          <p class="u">Thomas Edison State University</p>
-          <p class="y">2026</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/CQIE_BEng_Civil_Engineering.pdf" target="_blank" rel="noopener">
-        <img src="images/cqie-degree.jpg" alt="B.Eng. in Civil Engineering, Chongqing Institute of Engineering">
-        <div class="meta">
-          <p class="t">B.Eng. Civil Engineering</p>
-          <p class="u">Chongqing Institute of Engineering</p>
-          <p class="y">2021</p>
-        </div>
-      </a>
-       
-      <a class="cert" href="degrees/CityU_Macau_MBA.pdf" target="_blank" rel="noopener">
-        <img src="images/cityu-macau-degree.jpg" alt="MBA, City University of Macau">
-        <div class="meta">
-          <p class="t">Master of Business Administration</p>
-          <p class="u">City University of Macau</p>
-          <p class="y">2023</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/LIU_PHD.pdf" target="_blank" rel="noopener">
-        <img src="images/LIU_CERTIFICATE.png" alt="Visiting Ph.D. student certificate, Linköping University">
-        <div class="meta">
-          <p class="t">Visiting Ph.D. Student</p>
-          <p class="u">Linköping University</p>
-          <p class="y">2027</p>
-        </div>
-      </a>
-
-       <a class="cert" href="degrees/IN-6.pdf" target="_blank" rel="noopener">
-        <img src="images/CQIE-Work.png" alt="Data Specialist and External Academic Supervisor, Chongqing Institute of Engineering">
-        <div class="meta">
-          <p class="t">Data Specialist and External Academic Supervisor</p>
-          <p class="u">Chongqing Institute of Engineering</p>
-          <p class="y">2024</p>
-        </div>
-      </a>      
-
-       <a class="cert" href="degrees/IN-7.pdf" target="_blank" rel="noopener">
-        <img src="images/CQ13-IN.png" alt="Clinical Psychology Assistant Intern, Chongqing Thirteenth People's Hospital">
-        <div class="meta">
-          <p class="t">Clinical Psychology Assistant Intern</p>
-          <p class="u">Chongqing Thirteenth People's Hospital</p>
-          <p class="y">2026</p>
-        </div>
-      </a>      
-       
-      <a class="cert" href="degrees/IN-1.pdf" target="_blank" rel="noopener">
-        <img src="images/coh-property.png" alt="Marketing Intern, China Overseas Property Co., Ltd. (Zhuhai)">
-        <div class="meta">
-          <p class="t">Marketing Intern</p>
-          <p class="u">China Overseas Property Co., Ltd. (Zhuhai)</p>
-          <p class="y">2022</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/IN-2.pdf" target="_blank" rel="noopener">
-        <img src="images/iqiyi.png" alt="Data Analyst Intern, iQIYI">
-        <div class="meta">
-          <p class="t">Data Analyst Intern</p>
-          <p class="u">iQIYI Data and Monitoring Center</p>
-          <p class="y">2019</p>
-        </div>
-      </a>
-      
-      <a class="cert" href="degrees/IN-3.pdf" target="_blank" rel="noopener">
-        <img src="images/cqicg.png" alt="Cost Management Intern, Chongqing International Construction Group">
-        <div class="meta">
-          <p class="t">Cost Management Intern</p>
-          <p class="u">Chongqing International Construction Group</p>
-          <p class="y">2020</p>
-        </div>
-      </a>
-      
-      <a class="cert" href="degrees/IN-4.pdf" target="_blank" rel="noopener">
-        <img src="images/huiling.png" alt="Social Worker Intern, Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center">
-        <div class="meta">
-          <p class="t">Social Worker Intern</p>
-          <p class="u">Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center</p>
-          <p class="y">2021</p>
-        </div>
-      </a>
-
-      <a class="cert" href="degrees/IN-5.pdf" target="_blank" rel="noopener">
-        <img src="images/sanya-construction.png" alt="Engineering Technology and Management, Sanya Construction Engineering Quality Testing Center">
-        <div class="meta">
-          <p class="t">Engineering Technology & Management</p>
-          <p class="u">Sanya Construction Engineering Quality Testing Center</p>
-          <p class="y">2022</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ========================= EXPERIENCE ========================= -->
-  <section id="experience" class="rise">
-    <div class="head">
-      <h2>Experience</h2>
-      <span class="n">2019 → present</span>
-    </div>
-
-   <ul class="track">
-     <li>
-       <span class="when">Nov 2024 — present</span>
-       <p class="what">Research Assistant · <a href="https://govcopp.ua.pt/user/1084" target="_blank" rel="noopener">GOVCOPP, University of Aveiro</a>; FEK, Linköping University</p>
-       <p class="who">Supervisors <em>Prof. António Carrizo Moreira</em>, <em>Prof. Lars Witell</em>, <em>Prof. Rui Patrício</em> · Statistical modeling, sustainable consumption, and luxury tourism · Python, R, Stata, Mplus, SmartPLS, AMOS, SPSS</p>
-     </li>
-     <li>
-       <span class="when">Jan 2022 — Jun 2023</span>
-       <p class="what">Research Assistant · <a href="https://www.polyu.edu.hk/" target="_blank" rel="noopener">The Hong Kong Polytechnic University</a></p>
-       <p class="who">Supervisor <em><a href="https://www.polyu.edu.hk/ise/people/academic-staff/ym-tang/" target="_blank" rel="noopener">Dr. Yuk Ming Tang</a></em> · Machine-learning dynamic pricing and psychological drivers of digital brand loyalty · Python, SPSS</p>
-     </li>
-     <li>
-       <span class="when">Sep 2021 — Jan 2022</span>
-       <p class="what">Research Assistant · <a href="https://fob.cityu.edu.mo/en/" target="_blank" rel="noopener">Faculty of Business, City University of Macau</a></p>
-       <p class="who">Supervisor <em><a href="https://profiles.uts.edu.au/Haoyu.Liu" target="_blank" rel="noopener">Dr. Haoyu Liu</a></em> · Multivariate modeling of consumer behavior · SPSS, SmartPLS, AMOS</p>
-     </li>
-   </ul>
-
-   <p class="sub">Teaching &amp; advising</p>
-   <ul class="plain">
-     <li>Teaching assistant — Undergraduate: Graduation Project (Thesis); MBA: Quantitative Methods, Graduation Project (Thesis).</li>
-     <li>Dissertation committee member and statistical methods consultant for graduate students in marketing, tourism, and education research, supervising PLS-SEM analyses, systematic literature reviews, and mixed-methods designs.</li>
-   </ul>
-
-   <p class="sub">Professional</p>
-   <ul class="track">
-     <li class="applied">
-       <span class="when">May 2026 — Jun 2026</span>
-       <p class="what">Clinical Psychology Assistant Intern · Chongqing Thirteenth People's Hospital</p>
-       <p class="who">Department of Clinical Psychology · Supported patients' health recovery and psychological adjustment</p>
-     </li>
-     <li class="applied">
-       <span class="when">Aug 2023 — Jul 2024</span>
-       <p class="what">Data Specialist and External Academic Supervisor · <a href="https://www.cqie.edu.cn/Index.shtml" target="_blank" rel="noopener">Chongqing Institute of Engineering</a></p>
-       <p class="who">Part-time employment · Supervisor <em><a href="https://scholar.google.com/citations?user=_4iMTv4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Dongmei Xia</a></em></p>
-     </li>
-     <li class="applied">
-       <span class="when">May 2022 — Oct 2022</span>
-       <p class="what">Marketing Intern · <a href="https://www.coli.com.hk/en/property/zhuhai" target="_blank" rel="noopener">China Overseas Property, Zhuhai</a></p>
-       <p class="who">Competitor benchmarking with Stata-based data cleaning; expense budgets and consumer-behavior research reports</p>
-     </li>
-     <li class="applied">
-       <span class="when">May 2022 — Oct 2022</span>
-       <p class="what">Engineering Technology &amp; Management · Sanya Construction Engineering Quality Testing Center</p>
-       <p class="who">Part-time employment · Engineering technical work and daily management</p>
-     </li>
-     <li class="applied">
-       <span class="when">Apr 2021 — Sep 2021</span>
-       <p class="what">Social Worker Intern · Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center</p>
-       <p class="who">Social work services and rehabilitation support</p>
-     </li>
-     <li class="applied">
-       <span class="when">Jul 2020 — Jan 2021</span>
-       <p class="what">Cost Management Intern · Chongqing International Construction Group</p>
-       <p class="who">Construction cost management · Hulun Buir History and Culture Museum Project</p>
-     </li>
-     <li class="applied">
-       <span class="when">Nov 2019 — Feb 2020</span>
-       <p class="what">Data Analyst Intern · <a href="https://careers.iqiyi.com/" target="_blank" rel="noopener">iQIYI, Beijing</a></p>
-       <p class="who">Data and Monitoring Center · Mentor <em><a href="https://www.researchgate.net/profile/Yingji-Li" target="_blank" rel="noopener">Prof. Yingji Li</a></em> · User-profile system built from 16,475 consumption profiles</p>
-     </li>
-   </ul>
-  </section>
-
-  <!-- ========================= PUBLICATIONS ========================= -->
-  <section id="publications" class="rise">
-    <div class="head">
-      <h2>Publications</h2>
-      <span class="n">n = <b id="pub-n">20</b> · colour marks substantive area</span>
-    </div>
-
-    <div class="pubbar" role="group" aria-label="Filter publications">
-      <button type="button" id="btn-all" aria-pressed="true">All</button>
-      <button type="button" id="btn-sel" aria-pressed="false">Representative</button>
-    </div>
-
-    <ul class="legend">
-      <li class="f-consumer">Consumer &amp; destination</li>
-      <li class="f-digital">Digital platforms</li>
-      <li class="f-environ">Environment &amp; economy</li>
-      <li class="f-health">Public health</li>
-      <li class="f-psych">Psychology</li>
-    </ul>
 
     <div id="pub-list">
-      <p class="year" data-year="2026">2026</p>
 
-      <article class="pub f-consumer" data-selected="true" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
+      <div class="yg">
+        <p class="yl">2026</p>
         <div>
-          <p class="t">How music–video metaphors build destination brand resonance: Dyadic affect, meaning access, and cultural cues</p>
-          <p class="a"><b>Joston Gary*</b>, Yang Gu, Hannah Wang, Xixing Zhou, Yan Feng, António Carrizo Moreira</p>
-          <p class="v">
-            <span class="chip rep">✦ Representative</span>
-            <span class="venue">Journal of Retailing and Consumer Services</span>
-            <span class="chip">CiteScore 24.8</span>
-            <span class="chip">ABDC-A</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/10B50yD4WjhQ2hot63FTeWYSqt44l74pe/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="consumer" data-year="2026">
+            <h3 class="t">How music–video metaphors build destination brand resonance: Dyadic affect, meaning access, and cultural cues</h3>
+            <p class="a"><b>Joston Gary*</b>, Yang Gu, Hannah Wang, Xixing Zhou, Yan Feng, António Carrizo Moreira</p>
+            <p class="v"><cite>Journal of Retailing and Consumer Services</cite>. SSCI Q1, ABDC A, CiteScore 24.8
+              <span class="lk"><a href="https://drive.google.com/file/d/10B50yD4WjhQ2hot63FTeWYSqt44l74pe/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-consumer" data-selected="true" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Information push strategies in e-commerce: Emotional and cognitive mechanisms shaping purchase decisions: Multi-method approaches</p>
-          <p class="a"><b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="chip rep">✦ Representative</span>
-            <span class="venue">Journal of Marketing Analytics</span>
-            <span class="chip">CiteScore 9.1</span>
-            <span class="chip q">Q1 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1JNwz1YDX6BmynZ0nivD1r5zO7k9XCPzo/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="consumer" data-year="2026">
+            <h3 class="t">Information push strategies in e-commerce: Emotional and cognitive mechanisms shaping purchase decisions: Multi-method approaches</h3>
+            <p class="a"><b>Joston Gary*</b></p>
+            <p class="v"><cite>Journal of Marketing Analytics</cite>. ESCI Q1, CiteScore 9.1
+              <span class="lk"><a href="https://drive.google.com/file/d/1JNwz1YDX6BmynZ0nivD1r5zO7k9XCPzo/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-psych" data-selected="true" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Under pressure, still adapting: A job demands–resources model of academic resource depletion and student adaptation in Chinese secondary schools</p>
-          <p class="a">Yu Yang, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Acta Psychologica</span>
-            <span class="chip">CiteScore 3.1</span>
-            <span class="chip">ABDC-A</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/13zN0bK32bpdDI8Wt_JoGLsg3a0OogAKx/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="psych" data-year="2026">
+            <h3 class="t">Under pressure, still adapting: A job demands–resources model of academic resource depletion and student adaptation in Chinese secondary schools</h3>
+            <p class="a">Yu Yang, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Acta Psychologica</cite>. SSCI Q1, ABDC A, CiteScore 3.1
+              <span class="lk"><a href="https://drive.google.com/file/d/13zN0bK32bpdDI8Wt_JoGLsg3a0OogAKx/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-psych" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Physical activity, psychological resilience, and non-suicidal self-injury among male college students: A cross-sectional study</p>
-          <p class="a">Chang Hu, Wen Zhang, Muxiang Che, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Healthcare</span>
-            <span class="chip">CiteScore 5.5</span>
-            <span class="chip q">Q1 · SSCI/SCIE</span>
-            <a class="chip" href="https://drive.google.com/file/d/1sGFoEnMa6YkxqtmU7b9ooYhA0D5E_AOe/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="psych" data-year="2026">
+            <h3 class="t">Physical activity, psychological resilience, and non-suicidal self-injury among male college students: A cross-sectional study</h3>
+            <p class="a">Chang Hu, Wen Zhang, Muxiang Che, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Healthcare</cite>. SSCI/SCIE Q1, CiteScore 5.5
+              <span class="lk"><a href="https://drive.google.com/file/d/1sGFoEnMa6YkxqtmU7b9ooYhA0D5E_AOe/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-psych" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Associations of physical activity and psychological resilience with non-suicidal self-injury among Chinese adolescents: A combined variable- and person-centered approach</p>
-          <p class="a">Chang Hu, Wen Zhang, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Behavioral Sciences</span>
-            <span class="chip">CiteScore 4.1</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1LMIKznkZDRICvfyW2dnfGbh1Cdk6c6V0/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="psych" data-year="2026">
+            <h3 class="t">Associations of physical activity and psychological resilience with non-suicidal self-injury among Chinese adolescents: A combined variable- and person-centered approach</h3>
+            <p class="a">Chang Hu, Wen Zhang, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Behavioral Sciences</cite>. SSCI Q1, CiteScore 4.1
+              <span class="lk"><a href="https://drive.google.com/file/d/1LMIKznkZDRICvfyW2dnfGbh1Cdk6c6V0/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-psych" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">The bidirectional relationship between emotional distress and subjective wellbeing among college students: A cross-lagged network analysis</p>
-          <p class="a">Mengmeng Yuan, Wei Zhou, Bin Chen, Chang Hu, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Psychology</span>
-            <span class="chip">CiteScore 7.0</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1cvM15DAng237wVSm2xegkdA0RSXtJMMD/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="psych" data-year="2026">
+            <h3 class="t">The bidirectional relationship between emotional distress and subjective wellbeing among college students: A cross-lagged network analysis</h3>
+            <p class="a">Mengmeng Yuan, Wei Zhou, Bin Chen, Chang Hu, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Psychology</cite>. SSCI Q1, CiteScore 7.0
+              <span class="lk"><a href="https://drive.google.com/file/d/1cvM15DAng237wVSm2xegkdA0RSXtJMMD/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-health" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Physical activity and negative emotional states among female college students: A three-wave cross-lagged study</p>
-          <p class="a">Xinyi Chen, Wen Zhang, Chang Hu, Yuqing Yuan, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Behavioral Sciences</span>
-            <span class="chip">CiteScore 4.1</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1xwrqHICtl8aXeFqGXTB3baNM5bGD19me/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="health" data-year="2026">
+            <h3 class="t">Physical activity and negative emotional states among female college students: A three-wave cross-lagged study</h3>
+            <p class="a">Xinyi Chen, Wen Zhang, Chang Hu, Yuqing Yuan, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Behavioral Sciences</cite>. SSCI Q1, CiteScore 4.1
+              <span class="lk"><a href="https://drive.google.com/file/d/1xwrqHICtl8aXeFqGXTB3baNM5bGD19me/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-health" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Within-person longitudinal associations between obesity-related eating behaviors and physical activity among older adults: A three-wave random-intercept cross-lagged study</p>
-          <p class="a">Shi Luo, Bin Chen, Xianxiong Li, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Healthcare</span>
-            <span class="chip">CiteScore 5.5</span>
-            <span class="chip q">Q1 · SSCI/SCIE</span>
-            <a class="chip" href="https://drive.google.com/file/d/1IgvfqOny2RwzB5T-cWEs_pg6vFY-8_7A/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="health" data-year="2026">
+            <h3 class="t">Within-person longitudinal associations between obesity-related eating behaviors and physical activity among older adults: A three-wave random-intercept cross-lagged study</h3>
+            <p class="a">Shi Luo, Bin Chen, Xianxiong Li, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Healthcare</cite>. SSCI/SCIE Q1, CiteScore 5.5
+              <span class="lk"><a href="https://drive.google.com/file/d/1IgvfqOny2RwzB5T-cWEs_pg6vFY-8_7A/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-health" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Digital health interventions for reducing occupational burnout in nurses: A systematic review and meta-analysis</p>
-          <p class="a">Yange Yang, Jinpeng Wen, Hejia Wan, Qiaoju Yang, Jiayi Guan, Lijun Min, Songbo Jia, Zhenzhen Wang, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Public Health</span>
-            <span class="chip">CiteScore 6.4</span>
-            <span class="chip q">Q1 · SSCI/SCIE</span>
-            <a class="chip" href="https://drive.google.com/file/d/1eexPYW2Mh8Aj-CFRMQkAPyMUOu-0Arkr/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="health" data-year="2026">
+            <h3 class="t">Digital health interventions for reducing occupational burnout in nurses: A systematic review and meta-analysis</h3>
+            <p class="a">Yange Yang, Jinpeng Wen, Hejia Wan, Qiaoju Yang, Jiayi Guan, Lijun Min, Songbo Jia, Zhenzhen Wang, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Public Health</cite>. SSCI/SCIE Q1, CiteScore 6.4
+              <span class="lk"><a href="https://drive.google.com/file/d/1eexPYW2Mh8Aj-CFRMQkAPyMUOu-0Arkr/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-health" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Mitigating environmental public health risks via artificial intelligence: Mechanisms and boundary conditions</p>
-          <p class="a">Yushan Qiu, Siyuan Huang, Wenjing Deng, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Public Health</span>
-            <span class="chip">CiteScore 6.4</span>
-            <span class="chip q">Q1 · SSCI/SCIE</span>
-            <a class="chip" href="https://drive.google.com/file/d/1KTg5PWok5GCIKFNOhXjCTnpi7S1vIS8m/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="health" data-year="2026">
+            <h3 class="t">Mitigating environmental public health risks via artificial intelligence: Mechanisms and boundary conditions</h3>
+            <p class="a">Yushan Qiu, Siyuan Huang, Wenjing Deng, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Public Health</cite>. SSCI/SCIE Q1, CiteScore 6.4
+              <span class="lk"><a href="https://drive.google.com/file/d/1KTg5PWok5GCIKFNOhXjCTnpi7S1vIS8m/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-digital" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Monetizing achievement: Flow experience, game genre, and in-game consumption in the marketing communication of virtual goods</p>
-          <p class="a">Yunyan Huang, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Communication</span>
-            <span class="chip">CiteScore 2.9</span>
-            <span class="chip q">Q2 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1JJJR07xiyvR5rLhmfyyWwRdZMdI06A_z/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="digital" data-year="2026">
+            <h3 class="t">Monetizing achievement: Flow experience, game genre, and in-game consumption in the marketing communication of virtual goods</h3>
+            <p class="a">Yunyan Huang, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Communication</cite>. ESCI Q2, CiteScore 2.9
+              <span class="lk"><a href="https://drive.google.com/file/d/1JJJR07xiyvR5rLhmfyyWwRdZMdI06A_z/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-environ" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Carbon-management decision support for prefabricated component production and delivery under dynamic energy–carbon signals</p>
-          <p class="a">Yang Lu, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Environmental Science</span>
-            <span class="chip">CiteScore 9.2</span>
-            <span class="chip q">Q1 · SCIE</span>
-            <a class="chip" href="https://drive.google.com/file/d/1K2c62ePEKxWZ6JJWyXuoWZcz0BiV06MN/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="environ" data-year="2026">
+            <h3 class="t">Carbon-management decision support for prefabricated component production and delivery under dynamic energy–carbon signals</h3>
+            <p class="a">Yang Lu, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Environmental Science</cite>. SCIE Q1, CiteScore 9.2
+              <span class="lk"><a href="https://drive.google.com/file/d/1K2c62ePEKxWZ6JJWyXuoWZcz0BiV06MN/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-environ" data-selected="false" data-year="2026">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Efficiency assessment and cross-country differences in China–ASEAN agricultural trade supply chains: A data envelopment analysis based on a multidimensional input perspective</p>
-          <p class="a">Jiang Lu, Soo-Cheng Chuah, Chai-Li Cheam, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Cogent Economics &amp; Finance</span>
-            <span class="chip">CiteScore 5.9</span>
-            <span class="chip">ABDC-B</span>
-            <span class="chip q">Q1 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1xzOYdxNZO_56tAjrxoqGFFQLxexInOB4/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
+          <article class="pub" data-field="environ" data-year="2026">
+            <h3 class="t">Efficiency assessment and cross-country differences in China–ASEAN agricultural trade supply chains: A data envelopment analysis based on a multidimensional input perspective</h3>
+            <p class="a">Jiang Lu, Soo-Cheng Chuah, Chai-Li Cheam, <b>Joston Gary*</b></p>
+            <p class="v"><cite>Cogent Economics &amp; Finance</cite>. ESCI Q1, ABDC B, CiteScore 5.9
+              <span class="lk"><a href="https://drive.google.com/file/d/1xzOYdxNZO_56tAjrxoqGFFQLxexInOB4/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
         </div>
-      </article>
-      <p class="year" data-year="2025">2025</p>
+      </div>
 
-      <article class="pub f-digital" data-selected="true" data-year="2025">
-        <span class="mark" aria-hidden="true"></span>
+      <div class="yg">
+        <p class="yl">2025</p>
         <div>
-          <p class="t">Augmented reality in retail: Technical and emotional factors after experience – e-commerce consumption decision</p>
-          <p class="a"><b>Joston Gary*</b>, Xixing Zhou, Yuk Ming Tang, Yang Gu, António Carrizo Moreira</p>
-          <p class="v">
-            <span class="chip rep">✦ Representative</span>
-            <span class="venue">Journal of Global Information Management</span>
-            <span class="chip">CiteScore 7.5</span>
-            <span class="chip">ABDC-A</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/18xS0rQrpWwlbP_glpN_-dzDjfV-Awymb/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="digital" data-year="2025">
+            <h3 class="t">Augmented reality in retail: Technical and emotional factors after experience – e-commerce consumption decision</h3>
+            <p class="a"><b>Joston Gary*</b>, Xixing Zhou, Yuk Ming Tang, Yang Gu, António Carrizo Moreira</p>
+            <p class="v"><cite>Journal of Global Information Management</cite>. SSCI Q1, ABDC A, CiteScore 7.5
+              <span class="lk"><a href="https://drive.google.com/file/d/18xS0rQrpWwlbP_glpN_-dzDjfV-Awymb/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-consumer" data-selected="false" data-year="2025">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">The subtle power of nudging: Consumer choice in ethical and sustainable retailing</p>
-          <p class="a"><b>Joston Gary*</b>, Jiang Lu, Yan Feng, Zihan Wang, Yang Gu, Soo-Cheng Chuah, Simão Pedro Sil, António Carrizo Moreira</p>
-          <p class="v">
-            <span class="venue">Journal of Marketing Analytics</span>
-            <span class="chip">CiteScore 9.1</span>
-            <span class="chip q">Q1 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/1hKr9I8jEACO1UtemzfTs91OQurnJE1Tf/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="consumer" data-year="2025">
+            <h3 class="t">The subtle power of nudging: Consumer choice in ethical and sustainable retailing</h3>
+            <p class="a"><b>Joston Gary*</b>, Jiang Lu, Yan Feng, Zihan Wang, Yang Gu, Soo-Cheng Chuah, Simão Pedro Sil, António Carrizo Moreira</p>
+            <p class="v"><cite>Journal of Marketing Analytics</cite>. ESCI Q1, CiteScore 9.1
+              <span class="lk"><a href="https://drive.google.com/file/d/1hKr9I8jEACO1UtemzfTs91OQurnJE1Tf/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-digital" data-selected="false" data-year="2025">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Examining the determinants of user stickiness in a mobile video application: A flow theory perspective</p>
-          <p class="a"><b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">International Journal of Electronic Commerce Studies</span>
-            <span class="chip">CiteScore 1.7</span>
-            <span class="chip q">Q3</span>
-            <a class="chip" href="https://drive.google.com/file/d/1IWrAMQGBNj3jXJqBq9A_T31x3QN12qKB/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="digital" data-year="2025">
+            <h3 class="t">Examining the determinants of user stickiness in a mobile video application: A flow theory perspective</h3>
+            <p class="a"><b>Joston Gary*</b></p>
+            <p class="v"><cite>International Journal of Electronic Commerce Studies</cite>. Q3, CiteScore 1.7
+              <span class="lk"><a href="https://drive.google.com/file/d/1IWrAMQGBNj3jXJqBq9A_T31x3QN12qKB/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
 
-      <article class="pub f-environ" data-selected="false" data-year="2025">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">The development of the modern logistics industry and its role in promoting regional economic growth in China's underdeveloped northwest, driven by the digital economy</p>
-          <p class="a">Jiang Lu*, Soo-Cheng Chuah, Dongmei Xia, <b>Joston Gary</b></p>
-          <p class="v">
-            <span class="venue">Economies</span>
-            <span class="chip">CiteScore 5.2</span>
-            <span class="chip q">Q1 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/18uDPuaceybttZPbt84dN8JMLuiipm6xi/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
+          <article class="pub" data-field="environ" data-year="2025">
+            <h3 class="t">The development of the modern logistics industry and its role in promoting regional economic growth in China's underdeveloped northwest, driven by the digital economy</h3>
+            <p class="a">Jiang Lu*, Soo-Cheng Chuah, Dongmei Xia, <b>Joston Gary</b></p>
+            <p class="v"><cite>Economies</cite>. ESCI Q1, CiteScore 5.2
+              <span class="lk"><a href="https://drive.google.com/file/d/18uDPuaceybttZPbt84dN8JMLuiipm6xi/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
         </div>
-      </article>
-      <p class="year" data-year="2024">2024</p>
+      </div>
 
-      <article class="pub f-digital" data-selected="false" data-year="2024">
-        <span class="mark" aria-hidden="true"></span>
+      <div class="yg">
+        <p class="yl">2024</p>
         <div>
-          <p class="t">Examining the interplay of information, emotions, and behavior: PLS-ANN analysis</p>
-          <p class="a"><b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="venue">Frontiers in Communication</span>
-            <span class="chip">CiteScore 2.9</span>
-            <span class="chip q">Q1 · ESCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/117UmYh9bq-5Hw_kCu9VjAToHL7DCOuIe/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-            <a class="chip" href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-" target="_blank" rel="noopener">Code</a>
-          </p>
-        </div>
-      </article>
+          <article class="pub" data-field="digital" data-year="2024">
+            <h3 class="t">Examining the interplay of information, emotions, and behavior: PLS-ANN analysis</h3>
+            <p class="a"><b>Joston Gary*</b></p>
+            <p class="v"><cite>Frontiers in Communication</cite>. ESCI Q1, CiteScore 2.9
+              <span class="lk"><a href="https://drive.google.com/file/d/117UmYh9bq-5Hw_kCu9VjAToHL7DCOuIe/view?usp=sharing" target="_blank" rel="noopener">PDF</a><a href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-" target="_blank" rel="noopener">Code</a></span></p>
+          </article>
 
-      <article class="pub f-environ" data-selected="false" data-year="2024">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Dual-credit policy of new energy automobiles in China: Corporate innovation capability</p>
-          <p class="a"><b>Joston Gary</b>, Pengfei Zhao*, Zhihao Bao</p>
-          <p class="v">
-            <span class="venue">Sustainability</span>
-            <span class="chip">CiteScore 8.9</span>
-            <span class="chip q">Q1 · SSCI</span>
-            <a class="chip" href="https://drive.google.com/file/d/163ynjhmA8DIfQkLb5jVbosQbihI4mOTE/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-            <a class="chip" href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-" target="_blank" rel="noopener">Code</a>
-          </p>
+          <article class="pub" data-field="environ" data-year="2024">
+            <h3 class="t">Dual-credit policy of new energy automobiles in China: Corporate innovation capability</h3>
+            <p class="a"><b>Joston Gary</b>, Pengfei Zhao*, Zhihao Bao</p>
+            <p class="v"><cite>Sustainability</cite>. SSCI Q1, CiteScore 8.9
+              <span class="lk"><a href="https://drive.google.com/file/d/163ynjhmA8DIfQkLb5jVbosQbihI4mOTE/view?usp=sharing" target="_blank" rel="noopener">PDF</a><a href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-" target="_blank" rel="noopener">Code</a></span></p>
+          </article>
         </div>
-      </article>
-      <p class="year" data-year="2022">2022</p>
+      </div>
 
-      <article class="pub f-environ" data-selected="false" data-year="2022">
-        <span class="mark" aria-hidden="true"></span>
+      <div class="yg">
+        <p class="yl">2022</p>
         <div>
-          <p class="t">Analysis on the current situation of social governance of smart cities in the Greater Bay Area</p>
-          <p class="a">Qiong Li*, <b>Joston Gary (Li Rui)</b>, Shike He</p>
-          <p class="v">
-            <span class="venue">5th Guangdong–Hong Kong–Macao Greater Bay Area Postgraduate Forum, Taipa</span>
-            <span class="chip">Conference</span>
-            <a class="chip" href="https://drive.google.com/file/d/13XFylKW6oAo-XCwH8aSjg96-yF8b2HYX/view?usp=sharing" target="_blank" rel="noopener">Paper</a>
-          </p>
+          <article class="pub" data-field="environ" data-year="2022">
+            <h3 class="t">Analysis on the current situation of social governance of smart cities in the Greater Bay Area</h3>
+            <p class="a">Qiong Li*, <b>Joston Gary (Li Rui)</b>, Shike He</p>
+            <p class="v"><cite>5th Guangdong–Hong Kong–Macao Greater Bay Area Postgraduate Forum</cite>, Taipa. Conference paper
+              <span class="lk"><a href="https://drive.google.com/file/d/13XFylKW6oAo-XCwH8aSjg96-yF8b2HYX/view?usp=sharing" target="_blank" rel="noopener">PDF</a></span></p>
+          </article>
         </div>
-      </article>
+      </div>
+
+      <div class="yg">
+        <p class="yl words">In review</p>
+        <div>
+          <article class="pub" data-field="psych" data-year="wp">
+            <h3 class="t">Pre-sleep smartphone use, sleep quality, and psychological well-being: A cross-ethnic path analysis</h3>
+            <p class="a">X. Chen, B. Y. Wong, S. Zhang, T. Wu, B. Mao, J. Liu, <b>Joston Gary*</b></p>
+            <p class="v"><span class="status">Major revision</span> at <cite>Frontiers in Psychology</cite>. SSCI Q1, CiteScore 6.3</p>
+          </article>
+
+          <article class="pub" data-field="psych" data-year="wp">
+            <h3 class="t">How does professional identity affect the intention to stay of vocational education teachers from enterprises in the Chinese context?</h3>
+            <p class="a">D. Xia, Q. Li, X. Zhang, <b>Joston Gary*</b></p>
+            <p class="v"><span class="status">Major revision</span> at <cite>PLOS One</cite>. SCIE Q1, CiteScore 6.0</p>
+          </article>
+
+          <article class="pub" data-field="digital" data-year="wp">
+            <h3 class="t">Understanding first- and last-mile behavior through multi-source contextual inference under alternative identification strategies</h3>
+            <p class="a"><b>Joston Gary*</b></p>
+            <p class="v"><span class="status">Under review</span> at <cite>CAAI Transactions on Intelligence Technology</cite>. SCIE Q1, CiteScore 10.0</p>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= READING LIST ========================= -->
+<section class="sec reading" id="reading">
+  <div class="wrap">
+    <h2>Reading list</h2>
+    <p class="intro">Papers I return to, grouped by the problem they help me think about.</p>
+
+    <div class="row">
+      <p class="topic">Machine learning algorithms</p>
+      <p class="refs">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0167947320300487" target="_blank" rel="noopener">K-Means</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S0167811624000995" target="_blank" rel="noopener">PML</a>
+        <a href="https://pubsonline.informs.org/doi/full/10.1287/mksc.2022.1429" target="_blank" rel="noopener">GAN / VAE</a>
+        <a href="https://www.tandfonline.com/doi/abs/10.1080/10618600.2020.1869025" target="_blank" rel="noopener">WASP</a>
+      </p>
+    </div>
+    <div class="row">
+      <p class="topic">Behavioral psychology</p>
+      <p class="refs">
+        <a href="https://www.tandfonline.com/doi/full/10.1080/02699931.2025.2504556#abstract" target="_blank" rel="noopener">IAE</a>
+        <a href="https://journals.sagepub.com/doi/abs/10.1177/19485506231218362" target="_blank" rel="noopener">Emotions</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S002210312400012X" target="_blank" rel="noopener">Perception</a>
+        <a href="https://link.springer.com/article/10.1007/s41809-022-00098-9" target="_blank" rel="noopener">Culture</a>
+      </p>
+    </div>
+    <div class="row">
+      <p class="topic">Structural equation modeling</p>
+      <p class="refs">
+        <a href="https://link.springer.com/article/10.1057/s41270-023-00279-7" target="_blank" rel="noopener">Advanced</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S1877858521000383?via%3Dihub" target="_blank" rel="noopener">MR</a>
+        <a href="https://link.springer.com/article/10.1007/s11747-021-00805-y" target="_blank" rel="noopener">Endogeneity</a>
+        <a href="https://www.mdpi.com/2227-7390/10/9/1379" target="_blank" rel="noopener">ANN</a>
+        <a href="https://journals.sagepub.com/doi/abs/10.1177/0149206313501200" target="_blank" rel="noopener">BSEM</a>
+        <a href="https://uk.sagepub.com/en-gb/eur/advanced-issues-in-partial-least-squares-structural-equation-modeling/book279526" target="_blank" rel="noopener">Guide</a>
+      </p>
+    </div>
+    <div class="row">
+      <p class="topic">Methodological solutions</p>
+      <p class="refs">
+        <a href="https://link.springer.com/article/10.1007/s11747-022-00848-9" target="_blank" rel="noopener">RSA</a>
+        <a href="https://journals.sagepub.com/doi/10.1177/00222437231189185" target="_blank" rel="noopener">Nonparametric</a>
+        <a href="https://journals.sagepub.com/doi/full/10.1177/00222437211032938" target="_blank" rel="noopener">Probabilistic</a>
+        <a href="https://pubsonline.informs.org/doi/10.1287/mksc.2020.1265" target="_blank" rel="noopener">Selection models</a>
+      </p>
+    </div>
+    <div class="row">
+      <p class="topic">Music and tourism marketing</p>
+      <p class="refs">
+        <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/mar.21875" target="_blank" rel="noopener">Brand</a>
+        <a href="https://www.sciencedirect.com/science/article/pii/S1871187124002219" target="_blank" rel="noopener">Metaphor</a>
+        <a href="https://journals.sagepub.com/doi/full/10.1177/00472875241312178" target="_blank" rel="noopener">Influencer</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= EXPERIENCE ========================= -->
+<section class="sec" id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <h3>Research</h3>
+    <div class="row">
+      <p class="when">Nov 2024 – now</p>
+      <div>
+        <p class="what">Research Assistant, <a href="https://govcopp.ua.pt/user/1084" target="_blank" rel="noopener">GOVCOPP, University of Aveiro</a>, and FEK, Linköping University</p>
+        <p class="det">Statistical modeling, sustainable consumption, and luxury tourism with Prof. António Carrizo Moreira, Prof. Lars Witell, and Prof. Rui Patrício. Python, R, Stata, Mplus, SmartPLS, AMOS, SPSS.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Jan 2022 – Jun 2023</p>
+      <div>
+        <p class="what">Research Assistant, <a href="https://www.polyu.edu.hk/" target="_blank" rel="noopener">The Hong Kong Polytechnic University</a></p>
+        <p class="det">Machine-learning dynamic pricing and psychological drivers of digital brand loyalty with <a href="https://www.polyu.edu.hk/ise/people/academic-staff/ym-tang/" target="_blank" rel="noopener">Dr. Yuk Ming Tang</a>. Python, SPSS.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Sep 2021 – Jan 2022</p>
+      <div>
+        <p class="what">Research Assistant, <a href="https://fob.cityu.edu.mo/en/" target="_blank" rel="noopener">Faculty of Business, City University of Macau</a></p>
+        <p class="det">Multivariate modeling of consumer behavior with <a href="https://profiles.uts.edu.au/Haoyu.Liu" target="_blank" rel="noopener">Dr. Haoyu Liu</a>. SPSS, SmartPLS, AMOS.</p>
+      </div>
     </div>
 
-    <p class="year" style="margin-top:36px;">Working papers</p>
+    <h3>Teaching and advising</h3>
+    <div class="row">
+      <p class="when">Teaching</p>
+      <p class="det" style="margin-top:0">Teaching assistant for the undergraduate Graduation Project (Thesis), and for MBA Quantitative Methods and Graduation Project (Thesis).</p>
+    </div>
+    <div class="row">
+      <p class="when">Advising</p>
+      <p class="det" style="margin-top:0">Dissertation committee member and statistical methods consultant for graduate students in marketing, tourism, and education research, supervising PLS-SEM analyses, systematic literature reviews, and mixed-methods designs.</p>
+    </div>
 
-      <article class="pub f-psych" data-selected="false" data-year="wp">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Pre-sleep smartphone use, sleep quality, and psychological well-being: A cross-ethnic path analysis</p>
-          <p class="a">X. Chen, B. Y. Wong, S. Zhang, T. Wu, B. Mao, J. Liu, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="chip">Major revision</span>
-            <span class="venue">Frontiers in Psychology</span>
-            <span class="chip">CiteScore 6.3</span>
-            <span class="chip q">Q1 · SSCI</span>
-          </p>
-        </div>
-      </article>
+    <h3>Professional</h3>
+    <div class="row">
+      <p class="when">May – Jun 2026</p>
+      <div>
+        <p class="what">Clinical Psychology Assistant Intern, Chongqing Thirteenth People's Hospital</p>
+        <p class="det">Department of Clinical Psychology. Supported patients' health recovery and psychological adjustment.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Aug 2023 – Jul 2024</p>
+      <div>
+        <p class="what">Data Specialist and External Academic Supervisor, <a href="https://www.cqie.edu.cn/Index.shtml" target="_blank" rel="noopener">Chongqing Institute of Engineering</a></p>
+        <p class="det">Part-time, with <a href="https://scholar.google.com/citations?user=_4iMTv4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Dongmei Xia</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">May – Oct 2022</p>
+      <div>
+        <p class="what">Marketing Intern, <a href="https://www.coli.com.hk/en/property/zhuhai" target="_blank" rel="noopener">China Overseas Property, Zhuhai</a></p>
+        <p class="det">Competitor benchmarking with Stata-based data cleaning; expense budgets and consumer-behavior research reports.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">May – Oct 2022</p>
+      <div>
+        <p class="what">Engineering Technology and Management, Sanya Construction Engineering Quality Testing Center</p>
+        <p class="det">Part-time. Engineering technical work and daily management.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Apr – Sep 2021</p>
+      <div>
+        <p class="what">Social Worker Intern, Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center</p>
+        <p class="det">Social work services and rehabilitation support.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Jul 2020 – Jan 2021</p>
+      <div>
+        <p class="what">Cost Management Intern, Chongqing International Construction Group</p>
+        <p class="det">Construction cost management for the Hulun Buir History and Culture Museum project.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Nov 2019 – Feb 2020</p>
+      <div>
+        <p class="what">Data Analyst Intern, <a href="https://careers.iqiyi.com/" target="_blank" rel="noopener">iQIYI</a>, Beijing</p>
+        <p class="det">Data and Monitoring Center, mentored by <a href="https://www.researchgate.net/profile/Yingji-Li" target="_blank" rel="noopener">Prof. Yingji Li</a>. Built a user-profile system from 16,475 consumption profiles.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <article class="pub f-psych" data-selected="false" data-year="wp">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">How does professional identity affect the intention to stay of vocational education teachers from enterprises in the Chinese context?</p>
-          <p class="a">D. Xia, Q. Li, X. Zhang, <b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="chip">Major revision</span>
-            <span class="venue">PLOS One</span>
-            <span class="chip">CiteScore 6.0</span>
-            <span class="chip q">Q1 · SCIE</span>
-          </p>
-        </div>
-      </article>
+<!-- ========================= EDUCATION ========================= -->
+<section class="sec" id="education">
+  <div class="wrap">
+    <h2>Education <small>9 programs</small></h2>
 
-      <article class="pub f-digital" data-selected="false" data-year="wp">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <p class="t">Understanding first- and last-mile behavior through multi-source contextual inference under alternative identification strategies</p>
-          <p class="a"><b>Joston Gary*</b></p>
-          <p class="v">
-            <span class="chip">Under review</span>
-            <span class="venue">CAAI Transactions on Intelligence Technology</span>
-            <span class="chip">CiteScore 10.0</span>
-            <span class="chip q">Q1 · SCIE</span>
-          </p>
-        </div>
-      </article>
-  </section>
+    <div class="row">
+      <p class="when">Dec 2027</p>
+      <div>
+        <p class="what">Ph.D. in Marketing, University of Aveiro</p>
+        <p class="det">Computational Marketing Communication track. Supervised by <a href="https://govcopp.ua.pt/user/800" target="_blank" rel="noopener">Prof. António Carrizo Moreira</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Dec 2027</p>
+      <div>
+        <p class="what">Ph.D. in Marketing and Strategy (Joint Degree), University of Minho</p>
+        <p class="det">AACSB and EFMD accredited. Mentored by <a href="https://www.eeg.uminho.pt/en/_layouts/15/uminho.portaisuoei.ui/pages/userinfo.aspx?p=6089" target="_blank" rel="noopener">Assoc. Prof. Beatriz Casais</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Aug 2027</p>
+      <div>
+        <p class="what">Visiting Ph.D. Student and Affiliated Researcher, Linköping University</p>
+        <p class="det">Computational Social Science Area. Supervised by <a href="https://liu.se/en/employee/larni66" target="_blank" rel="noopener">Prof. Lars Witell</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Jun 2029</p>
+      <div>
+        <p class="what">M.S. in Computer Science, Georgia Institute of Technology</p>
+        <p class="det">Human-Computer Interaction track. Atlanta, US.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Jul 2023</p>
+      <div>
+        <p class="what">M.B.A. in Accounting and Finance, City University of Macau</p>
+        <p class="det">AMBA, BGA Gold, QS 5 Stars. Supervised by <a href="https://fob.cityu.edu.mo/en/full-time-academic-staff/475" target="_blank" rel="noopener">Asst. Prof. Yat Fung Wong</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Dec 2026</p>
+      <div>
+        <p class="what">B.S. in Business Administration, Thomas Edison State University</p>
+        <p class="det">Marketing and Communication track. Mentored by <a href="https://www.tesu.edu/directory/profiles/business/robert-bigelow.html" target="_blank" rel="noopener">Prof. Robert Bigelow</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Oct 2026</p>
+      <div>
+        <p class="what">B.S. in Psychology, JSS Academy of Higher Education and Research</p>
+        <p class="det">Healthcare track, Mysuru. Mentored by <a href="https://www.jssuni.edu.in/jssaher/School-of-LifeSciences-Mysuru/division-of-cognitive-neuroscience-faculty.html" target="_blank" rel="noopener">Mrs. Rita Carral</a>.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Aug 2026</p>
+      <div>
+        <p class="what">B.S. in Computer Science, University of the People</p>
+        <p class="det">Data Science track. California, US.</p>
+      </div>
+    </div>
+    <div class="row">
+      <p class="when">Jun 2021</p>
+      <div>
+        <p class="what">B.Eng. in Civil Engineering, Chongqing Institute of Engineering</p>
+        <p class="det">Mentored by <a href="https://www.researchgate.net/profile/Yingji-Li" target="_blank" rel="noopener">Prof. Yingji Li</a>.</p>
+      </div>
+    </div>
 
-  <!-- ========================= HONORS ========================= -->
-  <section id="honors" class="rise">
-    <div class="head">
+    <h3 id="certificates">Certificates on file</h3>
+    <div class="strip">
+      <a class="cert" href="degrees/UoPeople_BSc_Computer_Science.pdf" target="_blank" rel="noopener">
+        <img src="images/uopeople-degree.jpg" alt="B.Sc. in Computer Science, University of the People" loading="lazy">
+        <div class="meta"><p class="t">B.Sc. Computer Science</p><p class="u">University of the People</p><p class="y">2026</p></div>
+      </a>
+      <a class="cert" href="degrees/JSS_BSc_Psychology.pdf" target="_blank" rel="noopener">
+        <img src="images/jss-degree.jpg" alt="B.Sc. in Psychology, JSS Academy" loading="lazy">
+        <div class="meta"><p class="t">B.Sc. Psychology</p><p class="u">JSS Academy of Higher Education and Research</p><p class="y">2026</p></div>
+      </a>
+      <!-- TODO: this card reuses the JSS image; replace with the TESU certificate image -->
+      <a class="cert" href="degrees/TESU_BSc_BA.pdf" target="_blank" rel="noopener">
+        <img src="images/jss-degree.jpg" alt="B.Sc. in Business Administration, Thomas Edison State University" loading="lazy">
+        <div class="meta"><p class="t">B.Sc. Business Administration</p><p class="u">Thomas Edison State University</p><p class="y">2026</p></div>
+      </a>
+      <a class="cert" href="degrees/CQIE_BEng_Civil_Engineering.pdf" target="_blank" rel="noopener">
+        <img src="images/cqie-degree.jpg" alt="B.Eng. in Civil Engineering, Chongqing Institute of Engineering" loading="lazy">
+        <div class="meta"><p class="t">B.Eng. Civil Engineering</p><p class="u">Chongqing Institute of Engineering</p><p class="y">2021</p></div>
+      </a>
+      <a class="cert" href="degrees/CityU_Macau_MBA.pdf" target="_blank" rel="noopener">
+        <img src="images/cityu-macau-degree.jpg" alt="MBA, City University of Macau" loading="lazy">
+        <div class="meta"><p class="t">Master of Business Administration</p><p class="u">City University of Macau</p><p class="y">2023</p></div>
+      </a>
+      <a class="cert" href="degrees/LIU_PHD.pdf" target="_blank" rel="noopener">
+        <img src="images/LIU_CERTIFICATE.png" alt="Visiting Ph.D. student certificate, Linköping University" loading="lazy">
+        <div class="meta"><p class="t">Visiting Ph.D. Student</p><p class="u">Linköping University</p><p class="y">2027</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-6.pdf" target="_blank" rel="noopener">
+        <img src="images/CQIE-Work.png" alt="Data Specialist and External Academic Supervisor, Chongqing Institute of Engineering" loading="lazy">
+        <div class="meta"><p class="t">Data Specialist and External Academic Supervisor</p><p class="u">Chongqing Institute of Engineering</p><p class="y">2024</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-7.pdf" target="_blank" rel="noopener">
+        <img src="images/CQ13-IN.png" alt="Clinical Psychology Assistant Intern, Chongqing Thirteenth People's Hospital" loading="lazy">
+        <div class="meta"><p class="t">Clinical Psychology Assistant Intern</p><p class="u">Chongqing Thirteenth People's Hospital</p><p class="y">2026</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-1.pdf" target="_blank" rel="noopener">
+        <img src="images/coh-property.png" alt="Marketing Intern, China Overseas Property Co., Ltd. (Zhuhai)" loading="lazy">
+        <div class="meta"><p class="t">Marketing Intern</p><p class="u">China Overseas Property Co., Ltd. (Zhuhai)</p><p class="y">2022</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-2.pdf" target="_blank" rel="noopener">
+        <img src="images/iqiyi.png" alt="Data Analyst Intern, iQIYI" loading="lazy">
+        <div class="meta"><p class="t">Data Analyst Intern</p><p class="u">iQIYI Data and Monitoring Center</p><p class="y">2019</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-3.pdf" target="_blank" rel="noopener">
+        <img src="images/cqicg.png" alt="Cost Management Intern, Chongqing International Construction Group" loading="lazy">
+        <div class="meta"><p class="t">Cost Management Intern</p><p class="u">Chongqing International Construction Group</p><p class="y">2020</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-4.pdf" target="_blank" rel="noopener">
+        <img src="images/huiling.png" alt="Social Worker Intern, Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center" loading="lazy">
+        <div class="meta"><p class="t">Social Worker Intern</p><p class="u">Chongqing Yuzhong District Huiling Vocational Rehabilitation Training Center</p><p class="y">2021</p></div>
+      </a>
+      <a class="cert" href="degrees/IN-5.pdf" target="_blank" rel="noopener">
+        <img src="images/sanya-construction.png" alt="Engineering Technology and Management, Sanya Construction Engineering Quality Testing Center" loading="lazy">
+        <div class="meta"><p class="t">Engineering Technology &amp; Management</p><p class="u">Sanya Construction Engineering Quality Testing Center</p><p class="y">2022</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= HONORS & SERVICE ========================= -->
+<section class="sec" id="service">
+  <div class="wrap two">
+    <div>
       <h2>Honors</h2>
-      <span class="n">grants &amp; awards</span>
+      <div class="honor"><span class="when">2024 – now</span><p class="what">Doctoral Research Fellowship, Foundation for Science and Technology (FCT), Portugal</p></div>
+      <div class="honor"><span class="when">2023 – 2025</span><p class="what">Research Grant, Chongqing Municipal Education Research Experimental Base</p></div>
+      <div class="honor"><span class="when">2018 – 2019</span><p class="what">National Scholarship for Undergraduate Students, China</p></div>
+      <div class="honor"><span class="when">2018 – 2020</span><p class="what">Undergraduate Scholarship, Chongqing Institute of Engineering</p></div>
+
+      <h3>Memberships</h3>
+      <ul class="journals" style="columns:1">
+        <li>American Marketing Association (AMA), since 2024</li>
+        <li>European Consortium of Innovative Universities (ECIU), since 2024</li>
+      </ul>
+
+      <h3>Institutional service</h3>
+      <ul class="journals" style="columns:1">
+        <li>President, Psychology Association, Chongqing Institute of Engineering, 2018 – 2020</li>
+        <li>Director Assistant, Chongqing Institute of Engineering, 2017 – 2021</li>
+      </ul>
     </div>
 
-    <ul class="plain">
-      <li>Doctoral Research Fellowship, Foundation for Science and Technology (FCT), Portugal. <span class="yr">2024 — present</span></li>
-      <li>Research Grant, Chongqing Municipal Education Research Experimental Base. <span class="yr">2023 — 2025</span></li>
-      <li>National Scholarship for Undergraduate Students, China. <span class="yr">2018 — 2019</span></li>
-      <li>Undergraduate Scholarship, Chongqing Institute of Engineering. <span class="yr">2018 — 2020</span></li>
-    </ul>
-  </section>
-
-  <!-- ========================= SERVICE ========================= -->
-  <section id="service" class="rise">
-    <div class="head">
-      <h2>Service</h2>
-      <span class="n">n = <b>26</b> journals</span>
-    </div>
-
-    <p class="sub">Journal reviewer · Marketing, communication &amp; tourism</p>
-    <div class="cols">
-      <ul>
+    <div>
+      <h2>Reviewing <small>26 journals</small></h2>
+      <h3>Marketing, communication and tourism</h3>
+      <ul class="journals">
         <li>Asia Pacific Journal of Marketing and Logistics</li>
         <li>International Journal of Electronic Commerce Studies</li>
         <li>Journal of Marketing Analytics</li>
         <li>Tourism &amp; Management Studies</li>
         <li>Tourism Review</li>
       </ul>
-    </div>
-
-    <p class="sub">Journal reviewer · Psychology &amp; health</p>
-    <div class="cols">
-      <ul>
+      <h3>Psychology and health</h3>
+      <ul class="journals">
         <li>Acta Psychologica</li>
         <li>BMC Psychology</li>
         <li>Discover Psychology</li>
@@ -1418,182 +974,406 @@ Joston Gary is a PhD Candidate in Marketing. His primary research area is comput
         <li>Frontiers in Public Health</li>
         <li>Frontiers in Sports and Active Living</li>
       </ul>
-    </div>
-
-    <p class="sub">Journal reviewer · Computing &amp; human–computer interaction</p>
-    <div class="cols">
-      <ul>
+      <h3>Computing and human–computer interaction</h3>
+      <ul class="journals">
         <li>Cognitive Computation</li>
         <li>Discover Artificial Intelligence</li>
         <li>Discover Internet of Things</li>
         <li>IET Intelligent Transport Systems</li>
         <li>International Journal of Human–Computer Interaction</li>
       </ul>
-    </div>
-
-    <p class="sub">Journal reviewer · Sustainability, economics &amp; management</p>
-    <div class="cols">
-      <ul>
+      <h3>Sustainability, economics and management</h3>
+      <ul class="journals">
         <li>Cogent Business &amp; Management</li>
         <li>Frontiers in Sustainability</li>
         <li>Journal of Cleaner Production</li>
         <li>SN Business &amp; Economics</li>
         <li>Sustainability</li>
       </ul>
-    </div>
-
-    <p class="sub">Journal reviewer · Multidisciplinary social sciences</p>
-    <div class="cols">
-      <ul>
-        <li>Humanities and Social Sciences Communications (Nature Portfolio)</li>
+      <h3>Multidisciplinary social sciences</h3>
+      <ul class="journals">
+        <li>Humanities and Social Sciences Communications</li>
         <li>Quality and Quantity</li>
         <li>Scientific Reports</li>
         <li>Social Sciences</li>
       </ul>
-    </div>
-
-    <p class="sub">Conference reviewer</p>
-    <div class="cols">
-      <ul>
+      <h3>Conferences</h3>
+      <ul class="journals" style="columns:1">
         <li>GBA Emerging Urban Agglomerations PG Forum 2022, Macau S.A.R.</li>
       </ul>
     </div>
+  </div>
+</section>
 
-    <p class="sub">Memberships</p>
-    <div class="cols">
-      <ul>
-        <li>American Marketing Association (AMA), 2024 — present</li>
-        <li>European Consortium of Innovative Universities (ECIU), 2024 — present</li>
-      </ul>
-    </div>
+</main>
 
-    <p class="sub">Institutional service</p>
-    <div class="cols">
-      <ul>
-        <li>President, Psychology Association, Chongqing Institute of Engineering, 2018 — 2020</li>
-        <li>Director Assistant, Chongqing Institute of Engineering, 2017 — 2021</li>
-      </ul>
-    </div>
-  </section>
-
-  </main>
-</div>
-</div>
-
-<!-- ========================= FOOTER ========================= -->
-<footer>
-  <div class="shell">
-    <div id="map-slot"></div>
-    <div class="footgrid">
-      <div>
-        <p class="m" style="margin:0 0 4px;">Joston Gary · <span lang="zh-Hans">黎瑞</span></p>
-        <p style="margin:0;"><a href="mailto:lirui@ua.pt">lirui@ua.pt</a> · <a href="mailto:li.rui@liu.se">li.rui@liu.se</a></p>
-      </div>
-      <div class="social">
-        <a href="https://scholar.google.com/citations?user=6aQ4HFAAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a>
-        <a href="https://github.com/JostonGary" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-        <a href="https://www.linkedin.com/in/li-rui-8131b0268/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-        <a href="work/Joston%20Gary-CV-2.pdf" target="_blank" rel="noopener" aria-label="Curriculum vitae"><i class="ai ai-cv" aria-hidden="true"></i></a>
-      </div>
-      <p class="m" style="margin:0;">Last updated <span id="updated">Oct 2026</span></p>
+<!-- ========================= CONTACT ========================= -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="big">Write to me.</p>
+    <p class="sub">I welcome collaboration on computational approaches to social behavior, and questions about methods in any of the fields above.</p>
+    <p class="mails"><a href="mailto:lirui@ua.pt">lirui@ua.pt</a><a href="mailto:li.rui@liu.se">li.rui@liu.se</a></p>
+    <div class="foot">
+      <span>Joston Gary <span lang="zh-Hans">黎瑞</span>. Last updated October 2026.</span>
+      <div id="map-slot"></div>
     </div>
   </div>
 </footer>
 
-<button class="totop" id="totop" type="button">Top</button>
-
 <script>
-/* ---------- publication filter ---------- */
-(function(){
-  var all = document.getElementById('btn-all');
-  var sel = document.getElementById('btn-sel');
-  var pubs = Array.prototype.slice.call(document.querySelectorAll('#pub-list .pub'));
-  var years = Array.prototype.slice.call(document.querySelectorAll('#pub-list .year'));
-  var counter = document.getElementById('pub-n');
+/* ============================================================
+   Publication filter, shared by the figure keys and the list
+   ============================================================ */
+var Filter = (function(){
+  var pubs   = Array.prototype.slice.call(document.querySelectorAll('#pub-list .pub'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('#pub-list .yg'));
+  var keys   = Array.prototype.slice.call(document.querySelectorAll('.key'));
+  var shown  = document.getElementById('shown');
+  var names  = { all:'all fields', consumer:'Consumer & destination', digital:'Digital platforms', environ:'Environment & economy', health:'Public health', psych:'Psychology' };
+  var listeners = [];
+  var active = 'all';
 
-  function render(onlySelected){
-    var shown = 0;
+  var counts = { all:pubs.length };
+  pubs.forEach(function(p){ var f = p.dataset.field; counts[f] = (counts[f] || 0) + 1; });
+  keys.forEach(function(k){ k.querySelector('.c').textContent = counts[k.dataset.f] || 0; });
+
+  function set(f){
+    active = f;
+    var n = 0;
     pubs.forEach(function(p){
-      var keep = !onlySelected || p.dataset.selected === 'true';
-      p.style.display = keep ? '' : 'none';
-      if(keep) shown++;
+      var keep = f === 'all' || p.dataset.field === f;
+      p.hidden = !keep;
+      if(keep) n++;
     });
-    years.forEach(function(h){
-      var y = h.dataset.year;
-      var any = pubs.some(function(p){
-        return p.dataset.year === y && p.style.display !== 'none';
-      });
-      h.style.display = any ? '' : 'none';
-    });
-    counter.textContent = shown;
-    all.setAttribute('aria-pressed', String(!onlySelected));
-    sel.setAttribute('aria-pressed', String(onlySelected));
+    groups.forEach(function(g){ g.hidden = !g.querySelector('.pub:not([hidden])'); });
+    keys.forEach(function(k){ k.setAttribute('aria-pressed', String(k.dataset.f === f)); });
+    shown.textContent = f === 'all'
+      ? 'Showing all ' + n + '. * marks the corresponding author.'
+      : 'Showing ' + n + ' in ' + names[f] + '.';
+    listeners.forEach(function(fn){ fn(f); });
   }
 
-  all.addEventListener('click', function(){ render(false); });
-  sel.addEventListener('click', function(){ render(true); });
-  render(false);
-})();
-
-/* ---------- scrollspy ---------- */
-(function(){
-  var links = Array.prototype.slice.call(document.querySelectorAll('#rail-nav a'));
-  var map = {};
-  links.forEach(function(a){
-    var el = document.querySelector(a.getAttribute('href'));
-    if(el) map[el.id] = a;
-  });
-  if(!('IntersectionObserver' in window)) return;
-
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        links.forEach(function(a){ a.classList.remove('on'); });
-        if(map[e.target.id]) map[e.target.id].classList.add('on');
+  keys.forEach(function(k){
+    k.addEventListener('click', function(){
+      var f = k.dataset.f === active && k.dataset.f !== 'all' ? 'all' : k.dataset.f;
+      set(f);
+      if(k.closest('.fig') && f !== 'all'){
+        document.getElementById('publications').scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth' });
       }
     });
-  }, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+  });
 
-  Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+  function reduceMotion(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  /* record figures computed from the list */
+  var published = pubs.filter(function(p){ return p.dataset.year !== 'wp'; });
+  var q1 = published.filter(function(p){ return /\bQ1\b/.test(p.querySelector('.v').textContent); }).length;
+  var corr = published.filter(function(p){ var b = p.querySelector('.a b'); return b && b.textContent.indexOf('*') > -1; }).length;
+  document.getElementById('r-pub').textContent  = published.length;
+  document.getElementById('r-q1').textContent   = q1;
+  document.getElementById('r-corr').textContent = corr;
+
+  return {
+    set:set,
+    get:function(){ return active; },
+    on:function(fn){ listeners.push(fn); },
+    pubs:pubs,
+    counts:counts,
+    reduceMotion:reduceMotion
+  };
 })();
 
-/* ---------- reveal on scroll ---------- */
+/* ============================================================
+   Figure 1 — studies converge into field clusters
+   ============================================================ */
 (function(){
-  var items = document.querySelectorAll('.rise');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce || !('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('in'); });
-    return;
+  var plot   = document.getElementById('plot');
+  var canvas = document.getElementById('field');
+  var tip    = document.getElementById('tip');
+  var ctx    = canvas.getContext('2d');
+  var css    = getComputedStyle(document.documentElement);
+  var reduce = Filter.reduceMotion();
+
+  var FIELDS = {
+    consumer:{ label:'Consumer & destination', cx:.27, cy:.33 },
+    digital: { label:'Digital platforms',      cx:.70, cy:.27 },
+    environ: { label:'Environment & economy',  cx:.77, cy:.70 },
+    health:  { label:'Public health',          cx:.47, cy:.74 },
+    psych:   { label:'Psychology',             cx:.20, cy:.73 }
+  };
+  Object.keys(FIELDS).forEach(function(k){ FIELDS[k].color = css.getPropertyValue('--f-' + k).trim(); });
+  var INK   = css.getPropertyValue('--ink').trim();
+  var INK3  = css.getPropertyValue('--ink-3').trim();
+  var LINE  = css.getPropertyValue('--line').trim();
+  var SANS  = css.getPropertyValue('--sans').trim();
+
+  /* deterministic randomness so the figure is the same on every visit */
+  var seed = 20261002;
+  function rnd(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+  function gauss(){ var u = 0, v = 0; while(!u) u = rnd(); while(!v) v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+  var papers = Filter.pubs.map(function(el){
+    var f = el.dataset.field;
+    return { el:el, f:f, big:true, ox:gauss() * 36, oy:gauss() * 28, sx:rnd(), sy:rnd(), d:rnd() * 450, ph:rnd() * 6.283,
+             title:el.querySelector('.t').textContent.trim(),
+             venue:el.querySelector('.v cite').textContent.trim(),
+             year:el.dataset.year === 'wp' ? 'In review' : el.dataset.year,
+             x:0, y:0 };
+  });
+
+  var dust = [];
+  var fieldKeys = Object.keys(FIELDS);
+  var total = Filter.pubs.length;
+  fieldKeys.forEach(function(f){
+    var n = Math.round(380 * (Filter.counts[f] || 0) / total);
+    for(var i = 0; i < n; i++){
+      dust.push({ f:f, ox:gauss() * 66, oy:gauss() * 50, sx:rnd(), sy:rnd(), d:rnd() * 650, ph:rnd() * 6.283, vx:0, vy:0, x:0, y:0 });
+    }
+  });
+  for(var j = 0; j < 70; j++){
+    dust.push({ f:null, fx:.04 + rnd() * .92, fy:.06 + rnd() * .88, sx:rnd(), sy:rnd(), d:rnd() * 650, ph:rnd() * 6.283, vx:0, vy:0, x:0, y:0 });
   }
+
+  var W = 0, H = 0, S = 1, dpr = 1;
+  var start = performance.now();
+  var DURATION = 2000;
+  var pointer = null;
+  var hoverPaper = null, hoverField = null;
+  var labelBoxes = {};
+  var visible = true, rafId = null;
+
+  function resize(){
+    var r = plot.getBoundingClientRect();
+    W = r.width; H = r.height;
+    S = Math.min(W / 640, H / 520);
+    S = Math.max(.62, Math.min(S, 1.15));
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    request();
+  }
+
+  function ease(t){ return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+  function target(p){
+    if(!p.f) return [p.fx * W, p.fy * H];
+    var c = FIELDS[p.f];
+    return [c.cx * W + p.ox * S, c.cy * H + p.oy * S];
+  }
+
+  function emphasis(){
+    if(hoverField) return hoverField;
+    var a = Filter.get();
+    return a === 'all' ? null : a;
+  }
+
+  function alpha(hex, a){
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  function draw(now){
+    ctx.clearRect(0, 0, W, H);
+
+    /* frame ticks, as on a plot */
+    ctx.strokeStyle = LINE; ctx.lineWidth = 1;
+    ctx.beginPath();
+    for(var i = 1; i < 10; i++){
+      var tx = Math.round(W * i / 10) + .5, ty = Math.round(H * i / 10) + .5;
+      ctx.moveTo(tx, H); ctx.lineTo(tx, H - 6);
+      ctx.moveTo(0, ty); ctx.lineTo(6, ty);
+    }
+    ctx.stroke();
+
+    var em = emphasis();
+    var elapsed = reduce ? 1e9 : now - start;
+
+    function place(p){
+      var t = Math.max(0, Math.min(1, (elapsed - p.d) / DURATION));
+      var e = ease(t);
+      var tg = target(p);
+      var drift = reduce ? 0 : (p.big ? 1.6 : 2.6) * e;
+      var x = p.sx * W + (tg[0] - p.sx * W) * e + Math.sin(now / 1500 + p.ph) * drift;
+      var y = p.sy * H + (tg[1] - p.sy * H) * e + Math.cos(now / 1700 + p.ph) * drift;
+      return [x, y, e];
+    }
+
+    /* small points, pushed aside by the pointer */
+    dust.forEach(function(p){
+      var pos = place(p);
+      var px = 0, py = 0;
+      if(pointer && !reduce){
+        var dx = pos[0] - pointer[0], dy = pos[1] - pointer[1];
+        var dd = Math.sqrt(dx * dx + dy * dy);
+        if(dd < 70 && dd > .01){ var k = (70 - dd) / 70 * 16; px = dx / dd * k; py = dy / dd * k; }
+      }
+      p.vx += (px - p.vx) * .12; p.vy += (py - p.vy) * .12;
+      p.x = pos[0] + p.vx; p.y = pos[1] + p.vy;
+      var col = p.f ? FIELDS[p.f].color : INK3;
+      var a = p.f ? .42 : .22;
+      if(em) a = p.f === em ? .55 : .08;
+      ctx.fillStyle = alpha(col, a);
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.7, 0, 6.283); ctx.fill();
+    });
+
+    /* centroids and labels, revealed as the clusters form */
+    var settle = reduce ? 1 : Math.max(0, Math.min(1, (elapsed - DURATION * .8) / 600));
+    ctx.font = '600 ' + Math.round(14 * Math.max(.9, Math.min(S, 1))) + 'px ' + SANS;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    fieldKeys.forEach(function(f){
+      var c = FIELDS[f];
+      var cx = c.cx * W, cy = c.cy * H;
+      var a = settle * (em && em !== f ? .3 : 1);
+      ctx.strokeStyle = alpha(INK, .55 * a); ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(cx - 5, cy - 5); ctx.lineTo(cx + 5, cy + 5); ctx.moveTo(cx + 5, cy - 5); ctx.lineTo(cx - 5, cy + 5); ctx.stroke();
+      var ly = Math.max(20, cy - 62 * S);
+      var w = ctx.measureText(c.label).width;
+      var lx = Math.max(w / 2 + 10, Math.min(W - w / 2 - 10, cx));
+      ctx.fillStyle = alpha(em === f ? c.color : INK, a);
+      ctx.fillText(c.label, lx, ly);
+      labelBoxes[f] = { x:lx - w / 2 - 6, y:ly - 16, w:w + 12, h:24 };
+    });
+
+    /* papers on top */
+    papers.forEach(function(p){
+      var pos = place(p);
+      p.x = pos[0]; p.y = pos[1];
+      var c = FIELDS[p.f].color;
+      var dim = em && em !== p.f;
+      var r = (p === hoverPaper ? 8.5 : 6.2) * Math.max(.85, Math.min(S, 1.1));
+      ctx.fillStyle = dim ? alpha(c, .18) : c;
+      ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.283); ctx.fill(); ctx.stroke();
+      if(p === hoverPaper){
+        ctx.strokeStyle = c; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(p.x, p.y, r + 5, 0, 6.283); ctx.stroke();
+      }
+    });
+  }
+
+  function loop(now){
+    draw(now);
+    rafId = (visible && !reduce) ? requestAnimationFrame(loop) : null;
+  }
+  function request(){
+    if(rafId === null) rafId = requestAnimationFrame(loop);
+  }
+
+  function hit(x, y){
+    var best = null, bd = 13 * 13;
+    papers.forEach(function(p){
+      var dx = p.x - x, dy = p.y - y, d = dx * dx + dy * dy;
+      if(d < bd){ bd = d; best = p; }
+    });
+    return best;
+  }
+  function hitLabel(x, y){
+    for(var f in labelBoxes){
+      var b = labelBoxes[f];
+      if(x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) return f;
+    }
+    return null;
+  }
+
+  function showTip(p){
+    if(!p){ tip.classList.remove('show'); return; }
+    tip.innerHTML = '';
+    var b = document.createElement('b'); b.textContent = p.title;
+    var s = document.createElement('span'); s.textContent = p.venue + ', ' + p.year;
+    tip.appendChild(b); tip.appendChild(s);
+    tip.classList.add('show');
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var left = p.x + 16, top = p.y - th - 12;
+    if(left + tw > W - 8) left = p.x - tw - 16;
+    if(top < 8) top = p.y + 16;
+    tip.style.left = Math.max(8, left) + 'px';
+    tip.style.top  = top + 'px';
+  }
+
+  canvas.addEventListener('pointermove', function(e){
+    var r = canvas.getBoundingClientRect();
+    var x = e.clientX - r.left, y = e.clientY - r.top;
+    pointer = [x, y];
+    var p = hit(x, y);
+    var f = p ? null : hitLabel(x, y);
+    if(p !== hoverPaper){ hoverPaper = p; showTip(p); }
+    hoverField = p ? p.f : f;
+    canvas.style.cursor = (p || f) ? 'pointer' : 'default';
+    request();
+  });
+  canvas.addEventListener('pointerleave', function(){
+    pointer = null; hoverPaper = null; hoverField = null; showTip(null); request();
+  });
+  canvas.addEventListener('click', function(e){
+    var r = canvas.getBoundingClientRect();
+    var x = e.clientX - r.left, y = e.clientY - r.top;
+    var p = hit(x, y);
+    if(p){
+      if(p.el.hidden) Filter.set(p.f);
+      p.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'center' });
+      p.el.classList.remove('flash'); void p.el.offsetWidth; p.el.classList.add('flash');
+      return;
+    }
+    var f = hitLabel(x, y);
+    if(f){
+      Filter.set(f);
+      document.getElementById('publications').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    }
+  });
+
+  Filter.on(request);
+
+  if('ResizeObserver' in window){ new ResizeObserver(resize).observe(plot); }
+  else { window.addEventListener('resize', resize); }
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      visible = entries[0].isIntersecting;
+      if(visible) request();
+    }).observe(plot);
+  }
+
+  resize();
+  start = performance.now();
+  request();
+})();
+
+/* ============================================================
+   Top bar: border on scroll, current section
+   ============================================================ */
+(function(){
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function(){
+    bar.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive:true });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  if(!('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      if(e.isIntersecting && map[e.target.id]){
+        links.forEach(function(a){ a.classList.remove('on'); });
+        map[e.target.id].classList.add('on');
+      }
     });
-  }, { rootMargin:'0px 0px -8% 0px', threshold:0.05 });
-  items.forEach(function(el){ io.observe(el); });
+  }, { rootMargin:'-30% 0px -60% 0px' });
+  Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if(el) io.observe(el); });
 })();
 
-/* ---------- back to top ---------- */
-(function(){
-  var btn = document.getElementById('totop');
-  window.addEventListener('scroll', function(){
-    btn.classList.toggle('show', window.scrollY > 500);
-  }, { passive:true });
-  btn.addEventListener('click', function(){
-    window.scrollTo({ top:0, behavior:'smooth' });
-  });
-})();
-
-/* ---------- visitor map, loaded late ---------- */
-(function(){
-  window.addEventListener('load', function(){
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.id = 'clustrmaps';
-    s.src = '//clustrmaps.com/map_v2.js?d=K9NLvpbM7GH1cTCvhvVlo4LW5p-d2mRZYw6UhrAFw0g&cl=ffffff&w=a';
-    document.getElementById('map-slot').appendChild(s);
-  });
-})();
+/* ============================================================
+   Visitor map, loaded last
+   ============================================================ */
+window.addEventListener('load', function(){
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.id = 'clustrmaps';
+  s.src = '//clustrmaps.com/map_v2.js?d=K9NLvpbM7GH1cTCvhvVlo4LW5p-d2mRZYw6UhrAFw0g&cl=ffffff&w=a';
+  document.getElementById('map-slot').appendChild(s);
+});
 </script>
 
 </body>
+</html>
