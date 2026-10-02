@@ -632,7 +632,6 @@ footer{
       <a href="#certificates">Certificates</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
-      <a href="#code">Code</a>
       <a href="#honors">Honors</a>
       <a href="#service">Service</a>
     </nav>
@@ -1378,27 +1377,6 @@ His primary research area is computational social science. His research combines
       </article>
   </section>
 
-  <!-- ========================= CODE ========================= -->
-  <section id="code" class="rise">
-    <div class="head">
-      <h2>Code</h2>
-      <span class="n">reproducibility materials</span>
-    </div>
-
-    <div class="repo">
-      <p class="path">
-        JostonGary /
-        <a href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-" target="_blank" rel="noopener"><strong>Marketing-Analytics-Code-Research-Paper</strong></a>
-      </p>
-      <p class="d">Routine implementations for Cronbach's α, AVE, discriminant validity, ANN, and related estimates used across the papers above.</p>
-      <p class="stats">
-        <span class="lang">Python</span>
-        <a href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-/stargazers" target="_blank" rel="noopener">Stars <span id="star-count">–</span></a>
-        <a href="https://github.com/JostonGary/Marketing-Analytics-Code-Research-Paper-/network/members" target="_blank" rel="noopener">Forks <span id="fork-count">–</span></a>
-      </p>
-    </div>
-  </section>
-
   <!-- ========================= HONORS ========================= -->
   <section id="honors" class="rise">
     <div class="head">
@@ -1407,8 +1385,8 @@ His primary research area is computational social science. His research combines
     </div>
 
     <ul class="plain">
-      <li>Doctoral Research Fellowship, Foundation for Science and Technology (FCT), Portugal — principal recipient, ranked 2 of 23. <span class="yr">2024 — present</span></li>
-      <li>Research grant “Research on Education and Governance,” Chongqing Municipal Education Research Experimental Base — research team member. <span class="yr">2023 — 2025</span></li>
+      <li>Doctoral Research Fellowship, Foundation for Science and Technology (FCT), Portugal. <span class="yr">2024 — present</span></li>
+      <li>Research Grant, Chongqing Municipal Education Research Experimental Base. <span class="yr">2023 — 2025</span></li>
       <li>National Scholarship for Undergraduate Students, China. <span class="yr">2018 — 2019</span></li>
       <li>Undergraduate Scholarship, Chongqing Institute of Engineering. <span class="yr">2018 — 2020</span></li>
     </ul>
@@ -1607,17 +1585,6 @@ His primary research area is computational social science. His research combines
   btn.addEventListener('click', function(){
     window.scrollTo({ top:0, behavior:'smooth' });
   });
-})();
-
-/* ---------- github stats ---------- */
-(function(){
-  fetch('https://api.github.com/repos/JostonGary/Marketing-Analytics-Code-Research-Paper-')
-    .then(function(r){ if(!r.ok) throw new Error('github'); return r.json(); })
-    .then(function(d){
-      document.getElementById('star-count').textContent = d.stargazers_count ?? '–';
-      document.getElementById('fork-count').textContent = d.forks_count ?? '–';
-    })
-    .catch(function(){ /* leave the dashes in place */ });
 })();
 
 /* ---------- visitor map, loaded late ---------- */
